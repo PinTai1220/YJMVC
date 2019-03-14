@@ -1,0 +1,214 @@
+﻿
+@{
+    ViewBag.Title = "JieDaIndex";
+    Layout = "~/Views/Shared/_QianTaiView.cshtml";
+}
+
+<div class="banner-section">
+    <div class="container">
+        <h2>常见问题解答</h2>
+    </div>
+</div>
+<!---banner--->
+<div class="content">
+    <div class="faq-section">
+        <div class="container">
+            <h3>经常问的问题</h3>
+            <div class="test-list">
+                <div class="tab1 wow bounceIn" data-wow-delay="0.4s">
+                    <ul>
+                        <li><span> </span></li>
+                        <li class="text">免版税意味着什么？</li>
+                    </ul>
+                    <p>
+                        非独家代理就是这个区域内有好几家代理,人家可以从你这拿,也可以从别人那拿,这不需要平衡的,如果是独家代理,根本就没所谓的平衡
+                    </p>
+                    <p>
+                        请注意，根据市场上可用的不同许可类型，可能存在一些限制，例如我们的照片和音乐许可证（有关更多信息，请参阅免费图片网和模板音乐常见问题解答）
+                    </p>
+                </div>
+                <div class="tab2 wow bounceIn" data-wow-delay="0.4s">
+                    <ul>
+                        <li><span> </span></li>
+                        <li class="text">什么是非独家意味着什么？</li>
+
+                    </ul>
+                    <p>
+                        非独家代理就是这个区域内有好几家代理,人家可以从你这拿,也可以从别人那拿,这不需要平衡的,如果是独家代理,根本就没所谓的平衡
+                    </p>
+                    <p>请注意，根据市场上可用的不同许可类型，可能存在一些限制，例如我们的照片和音乐许可证（有关更多信息，请参阅免费图片网和模板音乐常见问题解答）</p>
+                </div>
+                <div class="tab3 wow bounceIn" data-wow-delay="0.4s">
+                    <ul>
+                        <li><span> </span></li>
+                        <li class="text">如何安装Wordpress？</li>
+
+                    </ul>
+                    <p>
+                        非独家代理就是这个区域内有好几家代理,人家可以从你这拿,也可以从别人那拿,这不需要平衡的,如果是独家代理,根本就没所谓的平衡
+                    </p>
+                    <p>
+                        请注意，根据市场上可用的不同许可类型，可能存在一些限制，例如我们的照片和音乐许可证（有关更多信息，请参阅免费图片网和模板音乐常见问题解答）
+                    </p>
+                </div>
+                <div class="tab4 wow bounceIn" data-wow-delay="0.4s">
+                    <ul>
+                        <li><span> </span></li>
+                        <li class="text">如何创建新的常见问题？</li>
+                    </ul>
+                    <p>
+                        非独家代理就是这个区域内有好几家代理,人家可以从你这拿,也可以从别人那拿,这不需要平衡的,如果是独家代理,根本就没所谓的平衡
+                    </p>
+                    <p>
+                        请注意，根据市场上可用的不同许可类型，可能存在一些限制，例如我们的照片和音乐许可证（有关更多信息，请参阅免费图片网和模板音乐常见问题解答）
+                    </p>
+                </div>
+                <div class="tab5 wow bounceIn" data-wow-delay="0.4s">
+                    <ul>
+                        <li><span> </span></li>
+                        <li class="text">如何安装演示内容？</li>
+                    </ul>
+                    <p>
+                        非独家代理就是这个区域内有好几家代理,人家可以从你这拿,也可以从别人那拿,这不需要平衡的,如果是独家代理,根本就没所谓的平衡
+                    </p>
+                    <p>
+                        请注意，根据市场上可用的不同许可类型，可能存在一些限制，例如我们的照片和音乐许可证（有关更多信息，请参阅免费图片网和模板音乐常见问题解答）
+                    </p>
+                </div>
+                <div class="tab6 wow bounceIn" data-wow-delay="0.4s">
+                    <ul>
+                        <li><span> </span></li>
+                        <li class="text">主题可以翻译吗？</li>
+                    </ul>
+                    <p>
+                        非独家代理就是这个区域内有好几家代理,人家可以从你这拿,也可以从别人那拿,这不需要平衡的,如果是独家代理,根本就没所谓的平衡
+                    </p>
+                    <p>请注意，根据市场上可用的不同许可类型，可能存在一些限制，例如我们的照片和音乐许可证（有关更多信息，请参阅免费图片网和模板音乐常见问题解答）</p>
+
+                </div>
+            </div>
+            <!-- script for tabs -->
+            <script>
+                $(document).ready(function () {
+                    $(".tab1 p").hide();
+                    $(".tab2 p").hide();
+                    $(".tab3 p").hide();
+                    $(".tab4 p").hide();
+                    $(".tab5 p").hide();
+                    $(".tab6 p").hide();
+                    $(".tab1 ul").click(function () {
+                        $(".tab1 p").slideToggle(300);
+                        $(".tab2 p").hide();
+                        $(".tab3 p").hide();
+                        $(".tab4 p").hide();
+                        $(".tab5 p").hide();
+                        $(".tab6 p").hide();
+                    })
+                    $(".tab2 ul").click(function () {
+                        $(".tab2 p").slideToggle(300);
+                        $(".tab1 p").hide();
+                        $(".tab3 p").hide();
+                        $(".tab4 p").hide();
+                        $(".tab5 p").hide();
+                        $(".tab6 p").hide();
+                    })
+                    $(".tab3 ul").click(function () {
+                        $(".tab3 p").slideToggle(300);
+                        $(".tab4 p").hide();
+                        $(".tab2 p").hide();
+                        $(".tab1 p").hide();
+                        $(".tab5 p").hide();
+                        $(".tab6 p").hide();
+                    })
+                    $(".tab4 ul").click(function () {
+                        $(".tab4 p").slideToggle(300);
+                        $(".tab3 p").hide();
+                        $(".tab2 p").hide();
+                        $(".tab1 p").hide();
+                        $(".tab5 p").hide();
+                        $(".tab6 p").hide();
+                    })
+                    $(".tab5 ul").click(function () {
+                        $(".tab5 p").slideToggle(300);
+                        $(".tab3 p").hide();
+                        $(".tab2 p").hide();
+                        $(".tab1 p").hide();
+                        $(".tab4 p").hide();
+                        $(".tab6 p").hide();
+                    })
+                    $(".tab6 ul").click(function () {
+                        $(".tab6 p").slideToggle(300);
+                        $(".tab3 p").hide();
+                        $(".tab2 p").hide();
+                        $(".tab1 p").hide();
+                        $(".tab5 p").hide();
+                        $(".tab4 p").hide();
+                    })
+                });
+            </script>
+            <!-- script for tabs -->
+        </div>
+    </div>
+</div>
+<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body real-spa">
+                <div class="login-grids">
+                    <div class="login">
+
+                        <div class="login-right">
+                            <form>
+                                <h3>登录</h3>
+                                <input type="text" value="Enter your Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Enter your Email';}" required="">
+                                <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+                                <h4><a href="#">忘记密码</a> / <a href="#">创建新密码</a></h4>
+                                <div class="single-bottom">
+                                    <input type="checkbox" id="brand" value="">
+                                    <label for="brand"><span></span>记住我</label>
+                                </div>
+                                <input type="submit" value="Login Now">
+                            </form>
+                        </div>
+
+                    </div>
+                    <p>通过在登陆后，您同意我们的 <a href="#">条款</a> 和 <a href="#">条件</a> 以及 <a href="#">隐私政策</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- //login -->
+<!-- Register -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content modal-info">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            </div>
+            <div class="modal-body real-spa">
+                <div class="login-grids">
+                    <div class="login">
+                        <div class="login-right">
+                            <form>
+                                <h3>注册</h3>
+                                <input type="text" value="Name" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Name';}" required="">
+                                <input type="text" value="Mobile number" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Mobile number';}" required="">
+                                <input type="text" value="Email id" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email id';}" required="">
+                                <input type="password" value="Password" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Password';}" required="">
+
+                                <input type="submit" value="Register Now">
+                            </form>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <p>通过在登陆后，您同意我们的 <a href="#">条款</a> 和 <a href="#">条件</a> 以及 <a href="#">隐私政策</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+

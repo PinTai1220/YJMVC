@@ -148,6 +148,7 @@
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\MainController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -750,6 +751,12 @@
     <Content Include="Scripts\vendor\jquery.cookie\component.json" />
     <Content Include="Scripts\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Views\Shared\_QianTaiView.cshtml" />
+    <Content Include="Views\Main\MainIndex.cshtml" />
+    <Content Include="Views\Main\AboutIndex.cshtml" />
+    <Content Include="Views\Main\JieDaIndex.cshtml" />
+    <Content Include="Views\Main\TiaoIndex.cshtml" />
+    <Content Include="Views\Main\YinSiIndex.cshtml" />
+    <Content Include="Views\Main\ZiDaiIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
