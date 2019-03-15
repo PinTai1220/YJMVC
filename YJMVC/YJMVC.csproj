@@ -774,6 +774,7 @@
     <Content Include="Views\Main\YinSiIndex.cshtml" />
     <Content Include="Views\Main\ZiDaiIndex.cshtml" />
     <Content Include="Views\Main\FuWuIndex.cshtml" />
+    <Content Include="Views\Main\LianXiIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

@@ -1,0 +1,52 @@
+﻿
+@{
+    ViewBag.Title = "联系我们";
+    Layout = "~/Views/Shared/_QianTaiView.cshtml";
+}
+<div class="banner-section">
+    <div class="container">
+        <h2>联系</h2>
+    </div>
+</div>
+<!---banner--->
+<div class="content">
+    <div class="contact-section">
+        <div class="container">
+            <div class="contact-grids">
+                <div class="col-md-8 contact-grid">
+                    <h5>填写表格，我们会在24小时之内回复您！</h5>
+                    <p>请认真填写表格，我们会根据您提的意见及时处理，回复您，请您保证手机或者邮箱的随时畅通。</p>
+                    <form>
+                        <input type="text" value="姓名 " onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '姓名';}" required="">
+                        <input type="email" value="电子邮箱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电子邮箱';}" required="">
+                        <input type="text" value="电话" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '电话';}" required="">
+                        <textarea type="text" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '您提的建议或者问题';}" required="">您提的建议或者问题</textarea>
+                        <input type="submit" value="发布展示">
+                    </form>
+                </div>
+                <div class="col-md-4 contact-grid1">
+                    <h4>客户代理</h4>
+                    <div class="contact-top">
+                        <div class="agent-img">
+                            <img src="/QianTai/images/t1.png" class="img-responsive" alt="">
+                        </div>
+                        <div class="agent-info">
+                            <h5>约翰逊</h5>
+                            <h6>易家房屋</h6>
+                        </div>
+                        <div class="clearfix"></div>
+                    </div>
+                    <ul>
+                        <li><i class="glyphicon glyphicon-earphone" aria-hidden="true"></i> 手机号：0041-456-3692</li>
+                        <li><i class="glyphicon glyphicon-phone" aria-hidden="true"></i> 电话号：0200-123-4567</li>
+                        <li><i class="glyphicon glyphicon-envelope" aria-hidden="true"></i> <a href="#"><a href="mailto:info@example.com">info@example.com</a></a></li>
+                        <li><i class="glyphicon glyphicon-print" aria-hidden="true"></i> 传真：0091-789-456100</li>
+                    </ul>
+
+                </div>
+                <div class="clearfix"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
