@@ -159,6 +159,7 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Helper\HttpClientHelper.cs" />
     <Compile Include="Models\DayCostModel.cs" />
     <Compile Include="Models\Developers_Apply_ForModel.cs" />
     <Compile Include="Models\HomeInfoModel.cs" />
