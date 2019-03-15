@@ -33,5 +33,9 @@ namespace YJMVC.Controllers
         {
             return View();
         }
+        public ActionResult FuWuIndex()
+        {
+            return View();
+        }
     }
 }

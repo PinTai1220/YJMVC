@@ -11,14 +11,13 @@
     <meta name="keywords" content="Real Space Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template,
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design" />
     <script type="application/x-javascript"> addEventListener("load", function() { setTimeout(hideURLbar, 0); }, false); function hideURLbar(){ window.scrollTo(0,1); } </script>
+
     <script src="~/QianTai/js/jquery-1.11.1.min.js"></script>
     <script src="~/QianTai/js/bootstrap.js"></script>
     <link href='https://~/QianTai/fonts.googleapis.com/css?family=Open+Sans:400,300,300italic,400italic,600,600italic,700,700italic,800,800italic' rel='stylesheet' type='text/css'>
     <link href='https://~/QianTai/fonts.googleapis.com/css?family=PT+Sans:400,400italic,700,700italic' rel='stylesheet' type='text/css'>
     <link href='https://~/QianTai/fonts.googleapis.com/css?family=Righteous' rel='stylesheet' type='text/css'>
     <script src="~/QianTai/js/responsiveslides.min.js"></script>
-    <script src="~/QianTai/js/jquery.flexslider.js"></script>
-    <link rel="stylesheet" href="~/QianTai/css/flexslider.css" type="text/css" media="screen" />
     <link href="~/QianTai/css/owl.carousel.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/QianTai/css/swipebox.css">
     <script src="~/QianTai/js/owl.carousel.js"></script>
@@ -33,12 +32,14 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
+    <script src="~/QianTai/js/jquery.swipebox.min.js"></script>
     <script type="text/javascript">
         jQuery(function ($) {
             $(".swipebox").swipebox();
         });
     </script>
-
+    <script src="~/QianTai/js/jquery.flexslider.js"></script>
+    <link rel="stylesheet" href="~/QianTai/css/flexslider.css" type="text/css" media="screen" />
     <script>
         // Can also be used with $(document).ready()
         $(window).load(function () {
@@ -94,8 +95,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">房屋信息<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-
-                                <li><a href="/Main/FuWuIndex">服务</a></li>
                                 <li><a href="">出租的房屋</a></li>
                                 <li><a href="forsale.html">出售的房屋</a></li>
                                 <li><a href="idxpress.html">搜索房屋</a></li>
@@ -106,6 +105,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="dropdown ">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">指南<span class="caret"></span></a>
                             <ul class="dropdown-menu">
+                                <li><a href="/Main/FuWuIndex">服务</a></li>
                                 <li><a href="/Main/AboutIndex">关于我们</a></li>
                                 <li><a href="/Main/ZiDaiIndex">咨询代理</a></li>
                                 <li><a href="/Main/JieDaIndex">常见问题解答</a></li>
@@ -177,6 +177,67 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"> </div>
             </div>
 
+        </div>
+    </div>
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body real-spa">
+                    <div class="login-grids">
+                        <div class="login">
+
+                            <div class="login-right">
+                                <form>
+                                    <h3>登录</h3>
+                                    <input type="text" value="你的邮箱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '你的邮箱';}" required="">
+                                    <input type="password" value="密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '密码';}" required="">
+                                    <h4><a href="#">忘记密码</a> / <a href="#">创建新密码</a></h4>
+                                    <div class="single-bottom">
+                                        <input type="checkbox" id="brand" value="">
+                                        <label for="brand"><span></span>记住我</label>
+                                    </div>
+                                    <input type="submit" value="现在登录">
+                                </form>
+                            </div>
+
+                        </div>
+                        <p>通过在登陆后，您同意我们的<a href="#">条款</a>和<a href="#">条件</a>以及<a href="#">隐私政策</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- //login -->
+    <!-- Register -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body real-spa">
+                    <div class="login-grids">
+                        <div class="login">
+                            <div class="login-right">
+                                <form>
+                                    <h3>注册</h3>
+                                    <input type="text" value="用户名" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '用户名';}" required="">
+                                    <input type="text" value="手机号" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '手机号';}" required="">
+                                    <input type="text" value="邮箱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '邮箱';}" required="">
+                                    <input type="password" value="密码" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '密码';}" required="">
+
+                                    <input type="submit" value="现在注册">
+                                </form>
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                        <p>通过在登陆后，您同意我们的<a href="#">条款</a>和<a href="#">条件</a>以及<a href="#">隐私政策</a></p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </body>
