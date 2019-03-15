@@ -97,11 +97,11 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">房屋信息<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="">出租的房屋</a></li>
-                                <li><a href="forsale.html">出售的房屋</a></li>
-                                <li><a href="idxpress.html">搜索房屋</a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal1">我要卖房</a></li>
-                                <li><a href="#" data-toggle="modal" data-target="#myModal1">我要出租</a></li>
+                                <li><a href="/HomeInfo/ChuZuIndex">出租的房屋</a></li>
+                                <li><a href="/HomeInfo/ChuShouIndex">出售的房屋</a></li>
+                                <li><a href="/HomeInfo/SelectIndex">搜索房屋</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#IMai">我要卖房</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#IZu">我要出租</a></li>
                             </ul>
                         </li>
                         <li class="dropdown ">
@@ -118,16 +118,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">图片展示<span class="caret"></span></a>
                             <ul class="dropdown-menu">
-                                <li><a href="2columnsgallery.html">2列展示</a></li>
-                                <li><a href="3columnsgallery.html">3列展示</a></li>
-                                <li><a href="4columnsgallery.html">4列展示</a></li>
+                                <li><a href="/HomeInfo/TwoIndex">2列展示</a></li>
+                                <li><a href="/HomeInfo/ThreeIndex">3列展示</a></li>
+                                <li><a href="/HomeInfo/FourIndex">4列展示</a></li>
                             </ul>
                         </li>
                         <li><a href="blog.html">广告推广</a></li>
                         <!--<li><a href="codes.html">Codes</a></li>-->
                         <li><a href="/Main/LianXiIndex">联系我们</a></li>
                     </ul>
-                    
+
                     <div class="clearfix"></div>
                 </div>
             </nav>
@@ -235,6 +235,58 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="clearfix"></div>
                         </div>
                         <p>通过在登陆后，您同意我们的<a href="#">条款</a>和<a href="#">条件</a>以及<a href="#">隐私政策</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="IMai" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body real-spa">
+                    <div class="login-grids">
+                        <div class="login">
+
+                            <div class="login-right">
+                                <form>
+                                    <h3>我要卖房</h3>
+                                    <input type="text" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
+                                    <input type="text" value="金额" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写';}" required="">
+
+                                    <input type="submit" value="发布">
+                                </form>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="modal fade" id="IZu" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body real-spa">
+                    <div class="login-grids">
+                        <div class="login">
+
+                            <div class="login-right">
+                                <form>
+                                    <h3>我要出租</h3>
+                                    <input type="text" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
+                                    <input type="text" value="金额" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写金额';}" required="">
+
+                                    <input type="submit" value="发布">
+                                </form>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>

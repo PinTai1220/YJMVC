@@ -13,7 +13,27 @@ namespace YJMVC.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: HomeInfo
-        public ActionResult Index()
+        public ActionResult ChuZuIndex()
+        {
+            return View();
+        }
+        public ActionResult ChuShouIndex()
+        {
+            return View();
+        }
+        public ActionResult SelectIndex()
+        {
+            return View();
+        }
+        public ActionResult TwoIndex()
+        {
+            return View();
+        }
+        public ActionResult ThreeIndex()
+        {
+            return View();
+        }
+        public ActionResult FourIndex()
         {
             return View();
         }
