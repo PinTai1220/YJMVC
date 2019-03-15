@@ -1,0 +1,51 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>易家后台</title>
+    <script src="~/Scripts/index.js"></script>
+    <link href="~/Scripts/css/style.css" rel="stylesheet" />
+</head>
+<body>
+    <div>
+    <div class="container">
+        <div class="login">
+            <h1 class="login-heading">
+                <strong>管理员登录</strong>
+            </h1>
+            <div>
+                <input type="text" id="name" placeholder="账号" required="required" class="input-txt" />
+                <input type="password" id="pwd" placeholder="密码" required="required" class="input-txt" />
+                <div class="login-footer">
+
+                    <button type="button" id="btnLogin" class="btn btn--right" onclick="Login()">登录  </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+<script src="~/Scripts/jquery-3.3.1.min.js"></script>
+<script>
+
+    function Login() {
+        var name = $("#name").val();
+        var pwd = $("#pwd").val();
+        if (name == "" && pwd == "") {
+            alert("请完善您的信息");
+            return;
+        }
+        else {
+            location.href = "/UserInfo/Login?Name=" + name + "&Pwd" + pwd;
+        }
+    }
+
+</script>
