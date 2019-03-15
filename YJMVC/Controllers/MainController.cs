@@ -8,6 +8,10 @@ namespace YJMVC.Controllers
 {
     public class MainController : Controller
     {
+        /// <summary>
+        /// 没有功能的主页面
+        /// </summary>
+        /// <returns></returns>
         // GET: Main
         public ActionResult MainIndex()
         {

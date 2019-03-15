@@ -147,8 +147,15 @@
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\DayCostController.cs" />
+    <Compile Include="Controllers\Developers_Apply_ForController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\HomeInfoController.cs" />
+    <Compile Include="Controllers\InfoStateController.cs" />
+    <Compile Include="Controllers\LevelCostController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\MoneyRecordController.cs" />
+    <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -771,6 +778,13 @@
     <Folder Include="App_Data\" />
     <Folder Include="Scripts\vendor\font-awesome\less\" />
     <Folder Include="Scripts\vendor\font-awesome\scss\" />
+    <Folder Include="Views\DayCost\" />
+    <Folder Include="Views\Developers_Apply_For\" />
+    <Folder Include="Views\HomeInfo\" />
+    <Folder Include="Views\InfoState\" />
+    <Folder Include="Views\LevelCost\" />
+    <Folder Include="Views\MoneyRecord\" />
+    <Folder Include="Views\Users\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="fonts\glyphicons-halflings-regular.woff2" />
