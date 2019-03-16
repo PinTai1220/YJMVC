@@ -884,13 +884,13 @@
     <Content Include="Views\Main\ZiDaiIndex.cshtml" />
     <Content Include="Views\Main\FuWuIndex.cshtml" />
     <Content Include="Views\Main\LianXiIndex.cshtml" />
+    <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\HomeInfo\ChuZuIndex.cshtml" />
     <Content Include="Views\HomeInfo\ChuShouIndex.cshtml" />
     <Content Include="Views\HomeInfo\SelectIndex.cshtml" />
     <Content Include="Views\HomeInfo\TwoIndex.cshtml" />
     <Content Include="Views\HomeInfo\ThreeIndex.cshtml" />
     <Content Include="Views\HomeInfo\FourIndex.cshtml" />
-    <Content Include="Views\Users\Login.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
