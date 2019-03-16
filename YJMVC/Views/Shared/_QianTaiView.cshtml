@@ -21,6 +21,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="~/QianTai/css/owl.carousel.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/QianTai/css/swipebox.css">
     <script src="~/QianTai/js/owl.carousel.js"></script>
+    <link href="~/layui/css/layui.css" rel="stylesheet" />
+    <script src="~/layui/layui.js"></script>
+   
     <script>
         $(function () {
             $("#slider").responsiveSlides({
@@ -49,19 +52,43 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             });
         });
     </script>
-    
-        <script>
-            $(document).ready(function () {
-                $("#owl-demo").owlCarousel({
-                    items: 1,
-                    lazyLoad: true,
-                    autoPlay: true,
-                    navigation: false,
-                    navigationText: false,
-                    pagination: true,
-                });
+
+    <script>
+        $(document).ready(function () {
+            $("#owl-demo").owlCarousel({
+                items: 1,
+                lazyLoad: true,
+                autoPlay: true,
+                navigation: false,
+                navigationText: false,
+                pagination: true,
             });
+        });
     </script>
+    <style>
+        input[type="radio"] + label::before {
+            content: "\a0"; /*不换行空格*/
+            display: inline-block;
+            vertical-align: middle;
+            font-size: 20px;
+            width: 1em;
+            height: 1em;
+            margin-right: .4em;
+            border-radius: 50%;
+            border: 1px solid #2DA9E1;
+            text-indent: .15em;
+            line-height: 1;
+        }
+        input[type="radio"]:checked + label::before {
+            background-color: #2DA9E1;
+            background-clip: content-box;
+            padding: .2em;
+        }
+        input[type="radio"] {
+            position: absolute;
+            clip: rect(0, 0, 0, 0);
+        }
+    </style>
 </head>
 <body>
     <div class="header-section">
@@ -253,10 +280,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="login-right">
                                 <form>
                                     <h3>我要卖房</h3>
-                                    <input type="text" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
-                                    <input type="text" value="金额" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写';}" required="">
-
-                                    <input type="submit" value="发布">
+                                    <div style="margin-top:20px;margin-left:150px">
+                                        <button type="button" class="layui-btn layui-btn-normal" id="test1">
+                                            <i class="layui-icon">&#xe67c;</i>上传图片
+                                        </button>
+                                    </div>
+                                    <input type="text" id="txtDi" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
+                                    <input type="text" id="txtJin" value="金额" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写金额';}" required="">
+                                    <input type="text" id="txtMian" value="房间面积" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写具体的房间面积';}" required="">
+                                    <div>
+                                        <span style="font-weight:700">房屋类型</span>
+                                        <select id="selFang" class="sel2" style="width:375px;height:45px">
+                                            <option value="请选择">请选择</option>
+                                            <option value="住宅">住宅</option>
+                                            <option value="别墅">别墅</option>
+                                            <option value="商业">商业</option>
+                                            <option value="写字楼">写字楼</option>
+                                            <option value="单元楼">单元楼</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight:700">卧室选择</span>
+                                        <select id="selWo" class="sel3" style="width:375px;height:45px">
+                                            <option value="请选择">请选择</option>
+                                            <option value="一室">一室</option>
+                                            <option value="二室">二室</option>
+                                            <option value="三室">三室</option>
+                                            <option value="四室">四室</option>
+                                            <option value="五室及以上">五室及以上</option>
+                                        </select>
+                                    </div>
+                                    <div class="female" style="margin-top:20px">
+                                        <label>推荐挂单等级</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="female" name="rdoLevel" value="低级" />
+                                        <label for="female">低级</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="fmale" name="rdoLevel" value="高级" />
+                                        <label for="fmale">高级</label>
+                                    </div>
+                                    <input type="text" id="txtTian" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
+                                    <input type="text" id="txtName" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
+                                    <input type="text" id="txtPhone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
+                                    <input type="submit" id="Save" value="发布">
                                 </form>
                             </div>
 
@@ -279,9 +345,48 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             <div class="login-right">
                                 <form>
                                     <h3>我要出租</h3>
+                                    <div style="margin-top:20px;margin-left:150px">
+                                        <button type="button" class="layui-btn layui-btn-normal" id="test1">
+                                            <i class="layui-icon">&#xe67c;</i>上传图片
+                                        </button>
+                                    </div>
                                     <input type="text" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
                                     <input type="text" value="金额" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写金额';}" required="">
-
+                                    <input type="text" value="房间面积" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写具体的房间面积';}" required="">
+                                    <div>
+                                        <span style="font-weight:700">房屋类型</span>
+                                        <select class="sel2" style="width:375px;height:45px">
+                                            <option value="请选择">请选择</option>
+                                            <option value="住宅">住宅</option>
+                                            <option value="别墅">别墅</option>
+                                            <option value="商业">商业</option>
+                                            <option value="写字楼">写字楼</option>
+                                            <option value="单元楼">单元楼</option>
+                                        </select>
+                                    </div>
+                                    <div>
+                                        <span style="font-weight:700">卧室选择</span>
+                                        <select class="sel3" style="width:375px;height:45px">
+                                            <option value="请选择">请选择</option>
+                                            <option value="一室">一室</option>
+                                            <option value="二室">二室</option>
+                                            <option value="三室">三室</option>
+                                            <option value="四室">四室</option>
+                                            <option value="五室及以上">五室及以上</option>
+                                        </select>
+                                    </div>
+                                    <div class="female" style="margin-top:20px">
+                                        <label>推荐挂单等级</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="female" name="rdoLevel" value="低级" />
+                                        <label for="female">低级</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="fmale" name="rdoLevel" value="高级" />
+                                        <label for="fmale">高级</label>
+                                    </div>
+                                    <input type="text" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
+                                    <input type="text" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
+                                    <input type="text" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
                                     <input type="submit" value="发布">
                                 </form>
                             </div>
@@ -294,3 +399,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     </div>
 </body>
 </html>
+<script>
+    layui.use('upload', function () {
+        var upload = layui.upload;
+
+        //执行实例
+        var uploadInst = upload.render({
+            elem: '#test1' //绑定元素
+            , url: '/upload/' //上传接口
+            , done: function (res) {
+                //上传完毕回调
+            }
+            , error: function () {
+                //请求异常回调
+            }
+        });
+    });
+    
+</script>
+

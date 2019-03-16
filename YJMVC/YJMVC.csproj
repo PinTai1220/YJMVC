@@ -751,6 +751,18 @@
     <Content Include="Scripts\js\charts-custom.js" />
     <Content Include="Scripts\js\charts-home.js" />
     <Content Include="Scripts\js\front.js" />
+    <Content Include="Scripts\layer-v3.0.3\demo.html" />
+    <Content Include="Scripts\layer-v3.0.3\layer\layer.js" />
+    <Content Include="Scripts\layer-v3.0.3\layer\layui.css" />
+    <Content Include="Scripts\layer-v3.0.3\layer\mobile\layer.js" />
+    <Content Include="Scripts\layer-v3.0.3\layer\mobile\need\layer.css" />
+    <Content Include="Scripts\layer-v3.0.3\layer\skin\default\icon-ext.png" />
+    <Content Include="Scripts\layer-v3.0.3\layer\skin\default\icon.png" />
+    <Content Include="Scripts\layer-v3.0.3\layer\skin\default\layer.css" />
+    <Content Include="Scripts\layer-v3.0.3\layer\skin\default\loading-0.gif" />
+    <Content Include="Scripts\layer-v3.0.3\layer\skin\default\loading-1.gif" />
+    <Content Include="Scripts\layer-v3.0.3\layer\skin\default\loading-2.gif" />
+    <Content Include="Scripts\layer-v3.0.3\更新日志.txt" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
     <Content Include="Scripts\vendor\bootstrap\css\bootstrap-grid.css" />
     <Content Include="Scripts\vendor\bootstrap\css\bootstrap-grid.min.css" />
@@ -891,6 +903,11 @@
     <Content Include="Views\HomeInfo\TwoIndex.cshtml" />
     <Content Include="Views\HomeInfo\ThreeIndex.cshtml" />
     <Content Include="Views\HomeInfo\FourIndex.cshtml" />
+    <Content Include="Scripts\layer-v3.0.3\文档\jquery下载.url" />
+    <Content Include="Scripts\layer-v3.0.3\文档\layer官网.url" />
+    <Content Include="Scripts\layer-v3.0.3\文档\layer文档.url" />
+    <Content Include="Scripts\layer-v3.0.3\文档\Layui社区.url" />
+    <Content Include="Scripts\layer-v3.0.3\获得layim.url" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
