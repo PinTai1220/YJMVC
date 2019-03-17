@@ -18,7 +18,7 @@ namespace YJMVC.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: Users
-        public ActionResult Index()
+        public ActionResult Login()
         {
             return View();
         }
