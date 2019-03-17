@@ -8,6 +8,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Web;
 using System.Web.Mvc;
 using YJMVC.Models;
+using YJMVC.MvcHelper;
 
 namespace YJMVC.Controllers
 {
@@ -31,6 +32,10 @@ namespace YJMVC.Controllers
         /// <returns></returns>
         public int Login(string email, string password)
         {
+            // 调用 Api的登录方法  或者调用返回所有值 然后 Lambda表达式判断
+            // 返回MD5 加密格式的字符串
+            string passworld = password.CalcMD5();
+
             if (email.Equals("admin") && password.Equals("00000"))
             {
                 Session["Account"] = email;
@@ -61,6 +66,9 @@ namespace YJMVC.Controllers
             users.User_PhotoUrl = imgPath;
 
             // 调用Api 注册方法
+            // 将密码进行MD5加密
+            users.User_Pwd = users.User_Pwd.CalcMD5();
+
             return Content("<script>alert('注册成功！');location.href='/Main/MainIndex'</script>");
         }
 
