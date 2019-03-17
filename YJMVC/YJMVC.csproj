@@ -168,6 +168,7 @@
     <Compile Include="Models\MoneyReCordModel.cs" />
     <Compile Include="Models\SessionidsModel.cs" />
     <Compile Include="Models\UsersModel.cs" />
+    <Compile Include="MvcHelper\CommonHelper.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -204,6 +205,10 @@
     <Content Include="CssTB\impCss\vendor\simple-line-icons\css\simple-line-icons.css" />
     <Content Include="CssTB\impCss\vendor\simple-line-icons\fonts\Simple-Line-Icons.svg" />
     <Content Include="favicon.ico" />
+    <Content Include="font-awesome-4.7.0\css\font-awesome.css" />
+    <Content Include="font-awesome-4.7.0\css\font-awesome.min.css" />
+    <Content Include="font-awesome-4.7.0\fonts\fontawesome-webfont.svg" />
+    <Content Include="font-awesome-4.7.0\HELP-US-OUT.txt" />
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
@@ -306,6 +311,7 @@
     <Content Include="CssTB\impCss\vendor\simple-line-icons\fonts\Simple-Line-Icons.ttf" />
     <Content Include="CssTB\impCss\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff" />
     <Content Include="CssTB\impCss\vendor\simple-line-icons\fonts\Simple-Line-Icons.woff2" />
+    <Content Include="Scripts\css\Buttons.css" />
     <Content Include="Scripts\fonts\dashboard.svg" />
     <Content Include="Scripts\icons-reference\fonts\dashboard.eot" />
     <Content Include="Scripts\icons-reference\fonts\dashboard.ttf" />
@@ -317,6 +323,39 @@
     <Content Include="QianTai\fonts\glyphicons-halflings-regular.ttf" />
     <Content Include="QianTai\fonts\glyphicons-halflings-regular.woff" />
     <Content Include="QianTai\fonts\glyphicons-halflings-regular.woff2" />
+    <Content Include="font-awesome-4.7.0\fonts\fontawesome-webfont.eot" />
+    <Content Include="font-awesome-4.7.0\fonts\fontawesome-webfont.ttf" />
+    <Content Include="font-awesome-4.7.0\fonts\fontawesome-webfont.woff" />
+    <Content Include="font-awesome-4.7.0\fonts\fontawesome-webfont.woff2" />
+    <Content Include="font-awesome-4.7.0\fonts\FontAwesome.otf" />
+    <Content Include="font-awesome-4.7.0\less\animated.less" />
+    <Content Include="font-awesome-4.7.0\less\bordered-pulled.less" />
+    <Content Include="font-awesome-4.7.0\less\core.less" />
+    <Content Include="font-awesome-4.7.0\less\fixed-width.less" />
+    <Content Include="font-awesome-4.7.0\less\font-awesome.less" />
+    <Content Include="font-awesome-4.7.0\less\icons.less" />
+    <Content Include="font-awesome-4.7.0\less\larger.less" />
+    <Content Include="font-awesome-4.7.0\less\list.less" />
+    <Content Include="font-awesome-4.7.0\less\mixins.less" />
+    <Content Include="font-awesome-4.7.0\less\path.less" />
+    <Content Include="font-awesome-4.7.0\less\rotated-flipped.less" />
+    <Content Include="font-awesome-4.7.0\less\screen-reader.less" />
+    <Content Include="font-awesome-4.7.0\less\stacked.less" />
+    <Content Include="font-awesome-4.7.0\less\variables.less" />
+    <Content Include="font-awesome-4.7.0\scss\font-awesome.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_animated.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_bordered-pulled.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_core.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_fixed-width.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_icons.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_larger.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_list.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_mixins.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_path.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_rotated-flipped.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_screen-reader.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_stacked.scss" />
+    <Content Include="font-awesome-4.7.0\scss\_variables.scss" />
     <None Include="Scripts\jquery-3.3.1.intellisense.js" />
     <Content Include="Scripts\css\custom.css" />
     <Content Include="Scripts\css\fontastic.css" />
@@ -639,6 +678,11 @@
     <Content Include="Scripts\jquery.validate.min.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.js" />
     <Content Include="Scripts\jquery.validate.unobtrusive.min.js" />
+    <Content Include="Scripts\JQuery\css\cropper.min.css" />
+    <Content Include="Scripts\JQuery\css\ImgCropping.css" />
+    <Content Include="Scripts\JQuery\Jquery.form.js" />
+    <Content Include="Scripts\JQuery\js\cropper.min.js" />
+    <Content Include="Scripts\JQuery\js\jquery-2.1.1.js" />
     <Content Include="Scripts\js\charts-custom.js" />
     <Content Include="Scripts\js\charts-home.js" />
     <Content Include="Scripts\js\front.js" />
@@ -778,6 +822,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="HeadImg\" />
     <Folder Include="Scripts\vendor\font-awesome\less\" />
     <Folder Include="Scripts\vendor\font-awesome\scss\" />
     <Folder Include="Views\DayCost\" />
