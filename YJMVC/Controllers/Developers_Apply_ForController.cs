@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YJMVC.Helper;
 
 namespace YJMVC.Controllers
 {
@@ -14,6 +15,20 @@ namespace YJMVC.Controllers
         /// <returns></returns>
         // GET: Developers_Apply_For
         public ActionResult Index()
+        {
+            string json = HttpClientHelper.SendRequest("api/Developer/Show", "get");
+            List<>
+            return View();
+        }
+
+        [HttpGet]
+        public ActionResult AddDev()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public ActionResult AddDev(Developers_Apply_ForController developers)
         {
             return View();
         }

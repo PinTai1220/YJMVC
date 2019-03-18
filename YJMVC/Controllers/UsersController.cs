@@ -43,6 +43,7 @@ namespace YJMVC.Controllers
             if (user != null)
             {
                 Session["Account"] = email;
+                Session["Account_Id"] = user.User_Id;
                 return 1;
             }
             else
