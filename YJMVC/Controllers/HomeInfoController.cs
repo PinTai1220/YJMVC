@@ -48,18 +48,19 @@ namespace YJMVC.Controllers
             HomeInfo_PhotoPath.SaveAs(path);
             home.HomeInfo_InfoType = 1;
             home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
+            home.HomeInfo_UserId =Convert.ToInt32(Session["Account_Id"]);
             string json = JsonConvert.SerializeObject(home);
             string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
             int result = JsonConvert.DeserializeObject<int>(jsonStr);
             if (result > 0)
             {
-                Response.Write("<script>location.href='/HomeInfo/ChuShouIndex/'</script>");
+                return Content("<script>location.href='/HomeInfo/ChuShouIndex/'</script>");
+                
             }
             else
             {
-                Response.Write("<script>alert('添加失败')</script>");
+                return Content("<script>alert('发布失败了!')</script>");
             }
-            return View();
         }
         [HttpPost]
         public ActionResult ZuFang(HttpPostedFileBase HomeInfo_PhotoPath, HomeInfoModel home)
@@ -68,18 +69,18 @@ namespace YJMVC.Controllers
             HomeInfo_PhotoPath.SaveAs(path);
             home.HomeInfo_InfoType = 2;
             home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
+            home.HomeInfo_UserId = Convert.ToInt32(Session["Account_Id"]);
             string json = JsonConvert.SerializeObject(home);
             string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
             int result = JsonConvert.DeserializeObject<int>(jsonStr);
             if (result > 0)
             {
-                Response.Write("<script>location.href='/HomeInfo/ChuZuIndex/'</script>");
+                return Content("<script>location.href='/HomeInfo/ChuZuIndex/'</script>");
             }
             else
             {
-                Response.Write("<script>alert('添加失败')</script>");
+                return Content("<script>alert('发布失败了!')</script>");
             }
-            return View();
         }
     }
 }

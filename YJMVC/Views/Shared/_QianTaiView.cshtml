@@ -139,7 +139,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         }
                         else
                         {
-
+                            <li><input id="UserId" type="hidden" name="HomeInfo_UserId" value="@Session["Account_Id"]" /></li>
                             <li class="fa fa-user-circle" aria-hidden="true"> 用户名：@Session["Account"]</li>
                             <li><i class="fa  fa-plane" aria-hidden="true"></i><a href="#" onclick="Logout()">注销</a></li>
                         }
@@ -268,7 +268,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input id="email" type="text" placeholder="请输入手机号。。。" required="">
                                     <input id="password" type="password" placeholder="请输入密码。。。" required="">
                                     <h4><a href="#">忘记密码</a></h4>
-                                    <input type="button" class="button button-glow button-rounded button-highlight button-large" style="width:435px;" value="现在登录" onclick="Login()">
+                                    <input type="button" class="button button-glow button-rounded button-highlight button-large" style="width:435px;" value="现在登录" onclick="Login()" />
                                 </form>
                             </div>
 
@@ -410,7 +410,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input type="text" name="DayCost_Money" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
                                     <input type="text" name="User_PhoneName" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
                                     <input type="text" name="User_Phone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
-                                    <input type="submit" id="Save" value="发布">
+                                    <input type="submit" id="Save" value="发布" onclick="CheckUserId()">
                                 }
 
                             </div>
@@ -439,7 +439,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <input type="file" id="Upload" name="HomeInfo_PhotoPath" value="上传图片" />
                                     </div>
                                     <input type="text" name="HomeInfo_PosiTion" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
-                                    <input type="text" name="HomeInfo_Price" value="金额" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写金额';}" required="">
+                                    <input type="text" name="HomeInfo_Area" value="每月多少钱" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写金额';}" required="">
                                     <input type="text" name="HomeInfo_Area" value="房间面积" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写具体的房间面积';}" required="">
                                     <div>
                                         <span style="font-weight:700">房屋类型</span>
@@ -466,16 +466,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="female" style="margin-top:20px">
                                         <label>推荐挂单等级</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" id="female" class="rdoLev" name="LeavelCost_Level" value="低级" />
-                                        <label for="female">低级</label>
+                                        <input type="radio" id="femle" class="rdoLev" name="LeavelCost_Level" value="低级" />
+                                        <label for="femle">低级</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" id="fmale" class="rdoLev" name="LeavelCost_Level" value="高级" />
-                                        <label for="fmale">高级</label>
+                                        <input type="radio" id="fmle" class="rdoLev" name="LeavelCost_Level" value="高级" />
+                                        <label for="fmle">高级</label>
                                     </div>
                                     <input type="text" name="DayCost_Money" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
                                     <input type="text" name="User_PhoneName" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
                                     <input type="text" name="User_Phone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
-                                    <input type="submit" id="Save" value="发布">
+                                    <input type="submit" id="SaveZu" onclick="CheckId()" value="发布">
                                 }
                             </div>
 
@@ -497,15 +497,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         var password = $("#password").val();
         $.ajax({
             url: "/Users/Login",
-            data: { email: email, password: password },
             type: "post",
-            dataType: "text",
+            data: { email: email, password: password },
+            async:false,
             success: function (data) {
                 if (data > 0) {
                     location.reload();
                 }
                 else {
-                    alert("用户名或密码有误！");
+                    alert("手机号或密码有误！");
                 }
             },
             error: function () {
@@ -645,7 +645,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
     function CheckPhone() {
         var phone = $("#Phone").val();
-        alert(phone);
         $.ajax({
             url: "/Users/CheckPhoneExists",
             type: "post",
@@ -662,7 +661,25 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             }
         });
     }
-
-
+    function CheckUserId() {
+        var Id = $("#UserId").val()
+        if (Id == null) {
+            alert("请先登录");
+            $("#Save").attr({ "disabled": "disabled" });
+        }
+        else {
+            $("#Save").removeAttr("disabled");
+        }
+    }
+    function CheckId() {
+        var Id = $("#UserId").val()
+        if (Id == null) {
+            alert("请先登录");
+            $("#SaveZu").attr({ "disabled": "disabled" });
+        }
+        else {
+            $("#SaveZu").removeAttr("disabled");
+        }
+    }
 
 </script>

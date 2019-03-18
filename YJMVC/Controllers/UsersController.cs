@@ -32,17 +32,20 @@ namespace YJMVC.Controllers
         /// <param name="email">邮箱</param>
         /// <param name="password">密码</param>
         /// <returns></returns>
+        /// 
+        [HttpPost]
         public int Login(string email, string password)
         {
             // 调用 Api的登录方法  或者调用返回所有值 然后 Lambda表达式判断
             // 返回MD5 加密格式的字符串
             string passworld = password.CalcMD5();
             List<UsersModel> users = GetUsers();            // 调用方法获得所有的用户信息
-            UsersModel user = users.Where(c => c.User_Phone.Equals(email) && c.User_Pwd.Equals(password)).FirstOrDefault();
+            UsersModel user = users.Where(c => c.User_Phone.Equals(email) && c.User_Pwd.Equals(passworld)).FirstOrDefault();
 
             if (user != null)
             {
                 Session["Account"] = email;
+                Session["Account_Id"] = user.User_Id;
                 return 1;
             }
             else
