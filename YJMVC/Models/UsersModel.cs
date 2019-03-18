@@ -19,6 +19,10 @@ namespace YJMVC.Models
         /// </summary>
         public string User_Phone { get; set; }
         /// <summary>
+        /// 联系人
+        /// </summary>
+        public string User_PhoneName { get; set; }
+        /// <summary>
         /// 密码
         /// </summary>
         public string User_Pwd { get; set; }

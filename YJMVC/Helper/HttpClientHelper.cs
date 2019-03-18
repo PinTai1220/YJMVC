@@ -46,7 +46,6 @@ namespace YJMVC.Helper
                 case "delete":
                     response = client.DeleteAsync(url).Result;
                     break;
-
             }
             //接收http请求返回的结果信息
 
