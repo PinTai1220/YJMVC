@@ -17,21 +17,46 @@ namespace YJMVC.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: HomeInfo
-        public ActionResult ChuZuIndex(string position, double minPrice, double maxPrice, string area, string houseType, string type)
+        public ActionResult ChuZuIndex()
         {
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 2 || C.HomeInfo_PosiTion.Contains(position) || C.HomeInfo_AvgPrice >= minPrice && C.HomeInfo_AvgPrice <= maxPrice || C.HomeInfo_Area == area || C.HomeInfo_HouseType == houseType || C.HomeInfo_Type == type).ToList();
+            homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
             return View(homes);
         }
-        public ActionResult ChuShouIndex(string position, double minPrice, double maxPrice, string area, string houseType, string type)
+
+        /// <summary>
+        /// 查询 出租房屋查询
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetChuZhuHomeInfos(string position, double minPrice, double maxPrice, string houseType, string type)
+        {
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            homes = homes.Where(c => c.HomeInfo_InfoType == 2 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
+
+            return View("ChuZuIndex", homes);
+        }
+        public ActionResult ChuShouIndex()
         {
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 1 || C.HomeInfo_PosiTion.Contains(position) || C.HomeInfo_AvgPrice >= minPrice && C.HomeInfo_AvgPrice <= maxPrice || C.HomeInfo_Area == area || C.HomeInfo_HouseType == houseType || C.HomeInfo_Type == type).ToList();
+            homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
             return View(homes);
+        }
+        /// <summary>
+        /// 查询 出售房屋查询
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetChuShowHomeInfos(string position, double minPrice, double maxPrice, string houseType, string type)
+        {
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            homes = homes.Where(c => c.HomeInfo_InfoType == 1 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
+
+            return View("ChuShouIndex", homes);
         }
         public ActionResult SelectIndex()
         {
