@@ -19,11 +19,19 @@ namespace YJMVC.Controllers
         // GET: HomeInfo
         public ActionResult ChuZuIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
+            return View(homes);
         }
         public ActionResult ChuShouIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
+            return View(homes);
         }
         public ActionResult SelectIndex()
         {

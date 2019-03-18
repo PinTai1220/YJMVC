@@ -1,4 +1,4 @@
-﻿
+﻿@model List<YJMVC.Models.HomeInfoModel>
 @{
     ViewBag.Title = "出售";
     Layout = "~/Views/Shared/_QianTaiView.cshtml";
@@ -23,280 +23,61 @@
                             </ul>
                             <div id="myTabContent" class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                                    @foreach (var item in Model)
+                                    {
                                     <div class="forsale-grids">
-                                        <h4><a href="#">1200 Anastasia Avenue, Coral Gables</a></h4>
+                                        @*href，后期跳转到详情页面*@
+                                        <h4><a href="#">@item.HomeInfo_Xq_Name</a></h4>
                                         <div class="forsale1">
                                             <div class="forsale-left">
-                                                <a href="#"><img src="/QianTai/images/p3.jpg" class="img-responsive" alt="/"></a>
+                                                @*href，后期跳转到详情页面*@
+                                                <a href="#"><img src="@item.HomeInfo_PhotoPath" class="img-responsive" alt="/"></a>
                                             </div>
                                             <div class="forsale-right">
-                                                <h5><label>$</label> 7,500 Per Month - <span>Single Family Home</span></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-                                                <a href="#" class="button4">more details</a>
+                                                <h5><label>￥</label> @item.HomeInfo_Price - <span>@item.HomeInfo_Type</span></h5>
+                                                <p>@item.HomeInfo_IntroDuce</p>
+                                                @*href，后期跳转到详情页面*@
+                                                <a href="#" class="button4">知道更多</a>
                                             </div>
                                             <div class="clearfix"></div>
                                             <ul>
-                                                <li><span> 5000 </span>Area</li>
-                                                <li><span> 3 </span>Bathrooms</li>
-                                                <li><span> 3 </span>Bedrooms</li>
-                                                <li><span> 2 </span>Garages</li>
+                                                <li><span> @item.HomeInfo_PosiTion </span>Area</li>
+                                                <li><span>@item.HomeInfo_HouseType  </span></li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <div class="forsale-grids">
-                                        <h4><a href="#">1200 Anastasia Avenue, Coral Gables</a></h4>
-                                        <div class="forsale1">
-                                            <div class="forsale-left">
-                                                <a href="#"><img src="/QianTai/images/p4.jpg" class="img-responsive" alt="/"></a>
-                                            </div>
-                                            <div class="forsale-right">
-                                                <h5><label>$</label> 7,500 Per Month - <span>Villa</span></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-                                                <a href="#" class="button4">more details</a>
-                                            </div>
+                                    }
+
+                                    <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+                                        <div class="forsale-grids1">
+                                            @foreach (var item in Model)
+                                            {
+                                                <div class="col-md-4 forsale-grid1">
+                                                    <img src="/QianTai/images/s4.jpg" class="img-responsive" alt="/">
+                                                    <div class="sale-info">
+                                                        <span>@if (item.HomeInfo_InfoType == 1)
+                                                        {
+                                                            @:出售
+                                                        }
+                                                        else if(item.HomeInfo_InfoType==2)
+                                                        {
+                                                            @:出租
+                                                        }
+                                                        else
+                                                        {
+                                                            @:楼盘
+                                                        }
+                                                        </span>
+                                                    </div>
+                                                    <h5>@item.HomeInfo_PosiTion,@item.HomeInfo_Xq_Name</h5>
+                                                    <p>@item.HomeInfo_IntroDuce<a href="#">了解更多</a></p>
+                                                    <h6>￥@item.HomeInfo_Price</h6>
+                                                </div>
+                                            }
                                             <div class="clearfix"></div>
-                                            <ul>
-                                                <li><span> 5000 </span>Area</li>
-                                                <li><span> 3 </span>Bathrooms</li>
-                                                <li><span> 3 </span>Bedrooms</li>
-                                                <li><span> 2 </span>Garages</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="forsale-grids">
-                                        <h4><a href="#">1200 Anastasia Avenue, Coral Gables</a></h4>
-                                        <div class="forsale1">
-                                            <div class="forsale-left">
-                                                <a href="#"><img src="/QianTai/images/p5.jpg" class="img-responsive" alt="/"></a>
-                                            </div>
-                                            <div class="forsale-right">
-                                                <h5><label>$</label> 9,500 Per Month - <span>Single Family Home</span></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-                                                <a href="#" class="button4">more details</a>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <ul>
-                                                <li><span> 5000 </span>Area</li>
-                                                <li><span> 3 </span>Bathrooms</li>
-                                                <li><span> 3 </span>Bedrooms</li>
-                                                <li><span> 2 </span>Garages</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="forsale-grids">
-                                        <h4><a href="#">1909 Bollywood Boulevard</a></h4>
-                                        <div class="forsale1">
-                                            <div class="forsale-left">
-                                                <a href="#"><img src="/QianTai/images/p6.jpg" class="img-responsive" alt="/"></a>
-                                            </div>
-                                            <div class="forsale-right">
-                                                <h5><label>$</label> 7,500 Per Month - <span>Single Family Home</span></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-                                                <a href="#" class="button4">more details</a>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <ul>
-                                                <li><span> 5000 </span>Area</li>
-                                                <li><span> 3 </span>Bathrooms</li>
-                                                <li><span> 3 </span>Bedrooms</li>
-                                                <li><span> 2 </span>Garages</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="forsale-grids">
-                                        <h4><a href="#">1200 Anastasia Avenue, Coral Gables</a></h4>
-                                        <div class="forsale1">
-                                            <div class="forsale-left">
-                                                <a href="#"><img src="/QianTai/images/p7.jpg" class="img-responsive" alt="/"></a>
-                                            </div>
-                                            <div class="forsale-right">
-                                                <h5><label>$</label> 480,000  Per Month - <span>Single Family Home</span></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-                                                <a href="#" class="button4">more details</a>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <ul>
-                                                <li><span> 5000 </span>Area</li>
-                                                <li><span> 3 </span>Bathrooms</li>
-                                                <li><span> 3 </span>Bedrooms</li>
-                                                <li><span> 2 </span>Garages</li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                    <div class="forsale-grids">
-                                        <h4><a href="#">Apartment Building</a></h4>
-                                        <div class="forsale1">
-                                            <div class="forsale-left">
-                                                <a href="#"><img src="/QianTai/images/p8.jpg" class="img-responsive" alt="/"></a>
-                                            </div>
-                                            <div class="forsale-right">
-                                                <h5><label>$</label> 3,500 Per Month - <span>Single Family Home</span></h5>
-                                                <p>Lorem ipsum dolor sit amet, consectetuer adipiscing elit, sed diam nonummy nibh euismod tincidunt ut laoreet dolore magna aliquam erat volutpat. Ut wisi enim ad……</p>
-                                                <a href="#" class="button4">more details</a>
-                                            </div>
-                                            <div class="clearfix"></div>
-                                            <ul>
-                                                <li><span> 5000 </span>Area</li>
-                                                <li><span> 3 </span>Bathrooms</li>
-                                                <li><span> 3 </span>Bedrooms</li>
-                                                <li><span> 2 </span>Garages</li>
-                                            </ul>
                                         </div>
                                     </div>
                                 </div>
-                                <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
-                                    <div class="forsale-grids1">
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s4.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>60 Merrick Way, Miami</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 2,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s5.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>Florida 5, Pinecrest, FL</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 4,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s6.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>109 Bollywood Boulevard</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 9,500 </h6>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="forsale-grids1">
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s7.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>60 Merrick Way, Miami</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 2,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s2.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>Florida 5, Pinecrest, FL</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 5,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s3.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>109 Bollywood Boulevard</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 7,500 </h6>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="forsale-grids1">
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s3.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>60 Merrick Way, Miami</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 3,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s4.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>Florida 5, Pinecrest, FL</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 4,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s7.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>109 Bollywood Boulevard</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$9,500 </h6>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="forsale-grids1">
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s3.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>60 Merrick Way, Miami</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 2,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s5.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>Florida 5, Pinecrest, FL</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$4,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s6.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>109 Bollywood Boulevard</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 7,500 </h6>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                    <div class="forsale-grids1">
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s1.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>60 Merrick Way, Miami</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 4,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s2.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>Florida 5, Pinecrest, FL</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 6,500 </h6>
-                                        </div>
-                                        <div class="col-md-4 forsale-grid1">
-                                            <img src="/QianTai/images/s3.jpg" class="img-responsive" alt="/">
-                                            <div class="sale-info">
-                                                <span>出售</span>
-                                            </div>
-                                            <h5>109 Bollywood Boulevard</h5>
-                                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                                            <h6>$ 9,500 </h6>
-                                        </div>
-                                        <div class="clearfix"></div>
-                                    </div>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
