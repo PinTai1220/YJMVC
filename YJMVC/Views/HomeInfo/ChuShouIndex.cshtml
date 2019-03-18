@@ -26,24 +26,21 @@
                                     @foreach (var item in Model)
                                     {
                                         <div class="forsale-grids">
-                                            @*href，后期跳转到详情页面*@
-                                            <h4><a href="#">@item.HomeInfo_Xq_Name</a></h4>
+                                            <h4><a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">@item.HomeInfo_Xq_Name</a></h4>
                                             <div class="forsale1">
                                                 <div class="forsale-left">
-                                                    @*href，后期跳转到详情页面*@
-                                                    <a href="#">
+                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">
                                                         <img src="~/Images/@item.HomeInfo_PhotoPath" style="width:239px;height:180px" class="img-responsive" alt="/">
                                                     </a>
                                                 </div>
                                                 <div class="forsale-right">
                                                     <h5><label>￥</label> @item.HomeInfo_Price - <span>@item.HomeInfo_Type</span></h5>
                                                     <p>@item.HomeInfo_IntroDuce</p>
-                                                    @*href，后期跳转到详情页面*@
-                                                    <a href="#" class="button4">知道更多</a>
+                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id" class="button4">知道更多</a>
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <ul>
-                                                    <li><span> @item.HomeInfo_PosiTion </span>Area</li>
+                                                    <li><span> @item.HomeInfo_PosiTion </span></li>
                                                     <li><span>@item.HomeInfo_HouseType  </span></li>
                                                 </ul>
                                             </div>
@@ -73,7 +70,7 @@
                                                     </span>
                                                 </div>
                                                 <h5>@item1.HomeInfo_PosiTion,@item1.HomeInfo_Xq_Name</h5>
-                                                <p>@item1.HomeInfo_IntroDuce<a href="#">了解更多</a></p>
+                                                <p>@item1.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item1.HomeInfo_Id">了解更多</a></p>
                                                 <h6>￥@item1.HomeInfo_Price</h6>
                                             </div>
                                         }
@@ -87,14 +84,14 @@
                     <div class="properties-top">
                         <h4>找到你所需要的房屋</h4>
                         <div class="yourplace">
-                            <h5>所有位置</h5>
+                            <h5>所在省市</h5>
                             <select class="sel2">
                                 <option value="请选择">请选择</option>
                                 <option value="上海">上海</option>
                             </select>
                         </div>
                         <div class="yourplace">
-                            <h5>所有子位置</h5>
+                            <h5>所在地点</h5>
                             <select class="sel2">
                                 <option value="请选择">请选择</option>
                                 <option value="浦东新区">浦东新区</option>
@@ -102,6 +99,9 @@
                                 <option value="嘉定区">嘉定区</option>
                                 <option value="徐汇区">徐汇区</option>
                                 <option value="闵行区">闵行区</option>
+                                <option value="普陀区">普陀区</option>
+                                <option value="静安区">静安区</option>
+                                <option value="黄浦区">黄浦区</option>
                             </select>
                         </div>
                         <div class="yourplace">

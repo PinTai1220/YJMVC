@@ -1317,7 +1317,6 @@
     <Content Include="Views\Users\Login.cshtml" />
     <Content Include="Views\HomeInfo\ChuZuIndex.cshtml" />
     <Content Include="Views\HomeInfo\ChuShouIndex.cshtml" />
-    <Content Include="Views\HomeInfo\SelectIndex.cshtml" />
     <Content Include="Views\HomeInfo\TwoIndex.cshtml" />
     <Content Include="Views\HomeInfo\ThreeIndex.cshtml" />
     <Content Include="Views\HomeInfo\FourIndex.cshtml" />
@@ -1336,6 +1335,7 @@
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.eot" />
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.woff" />
+    <Content Include="Views\HomeInfo\XiangQingIndex.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

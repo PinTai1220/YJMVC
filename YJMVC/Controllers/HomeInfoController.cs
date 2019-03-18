@@ -39,15 +39,24 @@ namespace YJMVC.Controllers
         }
         public ActionResult TwoIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            return View(homes);
         }
         public ActionResult ThreeIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            return View(homes);
         }
         public ActionResult FourIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            return View(homes);
         }
         [HttpPost]
         public ActionResult MaiFang(HttpPostedFileBase HomeInfo_PhotoPath, HomeInfoModel home)
@@ -63,7 +72,6 @@ namespace YJMVC.Controllers
             if (result > 0)
             {
                 return Content("<script>location.href='/HomeInfo/ChuShouIndex/'</script>");
-                
             }
             else
             {
@@ -89,6 +97,14 @@ namespace YJMVC.Controllers
             {
                 return Content("<script>alert('发布失败了!')</script>");
             }
+        }
+        public ActionResult XiangQingIndex(int Id)
+        {
+            string json = HttpClientHelper.SendRequest("api/HomeInfo/ShowById?id=" + Id, "get");
+            HomeInfoModel homes = JsonConvert.DeserializeObject<HomeInfoModel>(json);
+            ViewBag.Id = homes.HomeInfo_Id;
+            //根据房屋信息类型判断是出售还是出租
+            return View(homes);
         }
     }
 }

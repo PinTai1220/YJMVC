@@ -27,8 +27,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="~/Scripts/JQuery/css/ImgCropping.css" rel="stylesheet" />
     <script src="~/Scripts/JQuery/js/cropper.min.js"></script>
     <script src="~/QianTai/js/owl.carousel.js"></script>
-    <link href="~/layui/css/layui.css" rel="stylesheet" />
-    <script src="~/layui/layui.js"></script>
    
     <script>
         $(function () {
@@ -165,13 +163,12 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
-                        <li class="active"><a href="/Main/MainIndex">家 <span class="sr-only">(current)</span></a></li>
+                        <li><a href="/Main/MainIndex">家 <span class="sr-only">(current)</span></a></li>
                         <li class="dropdown">
                             <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">房屋信息<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/HomeInfo/ChuZuIndex">出租的房屋</a></li>
                                 <li><a href="/HomeInfo/ChuShouIndex">出售的房屋</a></li>
-                                <li><a href="/HomeInfo/SelectIndex">搜索房屋</a></li>
                                 <li><a href="#" data-toggle="modal" data-target="#IMai">我要卖房</a></li>
                                 <li><a href="#" data-toggle="modal" data-target="#IZu">我要出租</a></li>
                             </ul>
@@ -408,8 +405,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         <label for="fmale">高级</label>
                                     </div>
                                     <input type="text" name="DayCost_Money" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
-                                    <input type="text" name="User_PhoneName" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
-                                    <input type="text" name="User_Phone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
+                                    <input type="text" name="HomeInfo_Contact" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
+                                    <input type="text" name="HomeInfo_Phone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
                                     <input type="submit" id="Save" value="发布" onclick="CheckUserId()">
                                 }
 
