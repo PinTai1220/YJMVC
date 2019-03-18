@@ -432,19 +432,18 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="login">
 
                             <div class="login-right">
-                                <form action="/HomeInfo/ZuFang" enctype="multipart/form-data">
+                                @using (Html.BeginForm("ZuFang", "HomeInfo", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
                                     <h3>我要出租</h3>
-                                    <div class="layui-form-item">
-                                        <div class="layui-input-inline">
-                                            <input type="file" id="Upload" name="FangImg" value="上传图片" />
-                                        </div>
+                                    <div>
+                                        <input type="file" id="Upload" name="HomeInfo_PhotoPath" value="上传图片" />
                                     </div>
-                                    <input type="text" id="txtDi" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
-                                    <input type="text" id="txtJin" value="金额" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写金额';}" required="">
-                                    <input type="text" id="txtMian" value="房间面积" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写具体的房间面积';}" required="">
+                                    <input type="text" name="HomeInfo_PosiTion" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
+                                    <input type="text" name="HomeInfo_Price" value="金额" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写金额';}" required="">
+                                    <input type="text" name="HomeInfo_Area" value="房间面积" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '请填写具体的房间面积';}" required="">
                                     <div>
                                         <span style="font-weight:700">房屋类型</span>
-                                        <select id="selFang" class="sel2" style="width:375px;height:45px">
+                                        <select name="HomeInfo_Type" class="sel2" style="width:375px;height:45px">
                                             <option value="请选择">请选择</option>
                                             <option value="住宅">住宅</option>
                                             <option value="别墅">别墅</option>
@@ -455,7 +454,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     </div>
                                     <div>
                                         <span style="font-weight:700">卧室选择</span>
-                                        <select id="selWo" class="sel3" style="width:375px;height:45px">
+                                        <select name="HomeInfo_HouseType" class="sel3" style="width:375px;height:45px">
                                             <option value="请选择">请选择</option>
                                             <option value="一室">一室</option>
                                             <option value="二室">二室</option>
@@ -467,17 +466,17 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <div class="female" style="margin-top:20px">
                                         <label>推荐挂单等级</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" id="female" class="rdoLev" name="rdoLevel" value="低级" />
+                                        <input type="radio" id="female" class="rdoLev" name="LeavelCost_Level" value="低级" />
                                         <label for="female">低级</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                                        <input type="radio" id="female" class="rdoLev" name="rdoLevel" value="高级" />
+                                        <input type="radio" id="fmale" class="rdoLev" name="LeavelCost_Level" value="高级" />
                                         <label for="fmale">高级</label>
                                     </div>
-                                    <input type="text" id="txtTian" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
-                                    <input type="text" id="txtName" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
-                                    <input type="text" id="txtPhone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
+                                    <input type="text" name="DayCost_Money" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
+                                    <input type="text" name="User_PhoneName" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
+                                    <input type="text" name="User_Phone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
                                     <input type="submit" id="Save" value="发布">
-                                </form>
+                                }
                             </div>
 
                         </div>
