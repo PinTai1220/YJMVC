@@ -21,7 +21,7 @@ namespace YJMVC.Helper
         {
             HttpClient client = new HttpClient();
 
-            client.BaseAddress = new Uri(""); //设置http请求的地址
+            client.BaseAddress = new Uri("http://localhost:17547/"); //设置http请求的地址
             client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));//设置请求的数据传输格式
 
             HttpContent content = new StringContent(data);
@@ -46,7 +46,6 @@ namespace YJMVC.Helper
                 case "delete":
                     response = client.DeleteAsync(url).Result;
                     break;
-
             }
             //接收http请求返回的结果信息
 
