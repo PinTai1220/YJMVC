@@ -25,18 +25,15 @@
                                     @foreach (var item in Model)
                                     {
                                         <div class="forsale-grids">
-                                            @*href，后期跳转到详情页面*@
-                                            <h4><a href="#">@item.HomeInfo_Xq_Name</a></h4>
+                                            <h4><a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">@item.HomeInfo_Xq_Name</a></h4>
                                             <div class="forsale1">
                                                 <div class="forsale-left">
-                                                    @*href，后期跳转到详情页面*@
-                                                    <a href="#"><img src="~/Images/@item.HomeInfo_PhotoPath" style="width:239px;height:180px;" class="img-responsive" alt="/"></a>
+                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="~/Images/@item.HomeInfo_PhotoPath" style="width:239px;height:180px;" class="img-responsive" alt="/"></a>
                                                 </div>
                                                 <div class="forsale-right">
                                                     <h5><label>￥</label> @item.HomeInfo_AvgPrice /每月- <span>@item.HomeInfo_Type</span></h5>
                                                     <p>@item.HomeInfo_IntroDuce</p>
-                                                    @*href，后期跳转到详情页面*@
-                                                    <a href="#" class="button4">知道更多</a>
+                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id" class="button4">知道更多</a>
                                                 </div>
                                                 <div class="clearfix"></div>
                                                 <ul>
@@ -70,7 +67,7 @@
                                                     </span>
                                                 </div>
                                                 <h5>@item.HomeInfo_PosiTion,@item.HomeInfo_Xq_Name</h5>
-                                                <p>@item.HomeInfo_IntroDuce<a href="#">了解更多</a></p>
+                                                <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">了解更多</a></p>
                                                 <h6>￥@item.HomeInfo_Price</h6>
                                             </div>
                                         }
@@ -127,30 +124,30 @@
                                 <h5>最低价位</h5>
                                 <select class="sel3">
                                     <option value="请选择">请选择</option>
-                                    <option value="$500">$500</option>
-                                    <option value="$1000">$1000</option>
-                                    <option value="$2000">$2000</option>
-                                    <option value="$3000">$3000</option>
-                                    <option value="$4000">$4000</option>
+                                    <option value="￥500">￥500</option>
+                                    <option value="￥1000">￥1000</option>
+                                    <option value="￥2000">￥2000</option>
+                                    <option value="￥3000">￥3000</option>
+                                    <option value="￥4000">￥4000</option>
                                 </select>
                             </div>
                             <div class="col-md-6 yourplace-grid">
                                 <h5>最高价位</h5>
                                 <select class="sel3">
                                     <option value="请选择">请选择</option>
-                                    <option value="$1000">$1000</option>
-                                    <option value="$2000">$2000</option>
-                                    <option value="$3000">$3000</option>
-                                    <option value="$4000">$4000</option>
-                                    <option value="$5000">$5000</option>
-                                    <option value="$75000">$75000</option>
+                                    <option value="￥1000">￥1000</option>
+                                    <option value="￥2000">￥2000</option>
+                                    <option value="￥3000">￥3000</option>
+                                    <option value="￥4000">￥4000</option>
+                                    <option value="￥5000">￥5000</option>
+                                    <option value="￥7000">￥7000</option>
                                 </select>
                             </div>
                             <div class="clearfix"></div>
                         </div>
                         <div class="search1">
                             <form>
-                                <input type="submit" value="Search">
+                                <input type="submit" value="查询">
                             </form>
                         </div>
                     </div>
