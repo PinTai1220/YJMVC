@@ -17,20 +17,20 @@ namespace YJMVC.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: HomeInfo
-        public ActionResult ChuZuIndex()
+        public ActionResult ChuZuIndex(string position, double minPrice, double maxPrice, string area, string houseType, string type)
         {
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
+            homes = homes.Where(C => C.HomeInfo_InfoType == 2 || C.HomeInfo_PosiTion.Contains(position) || C.HomeInfo_AvgPrice >= minPrice && C.HomeInfo_AvgPrice <= maxPrice || C.HomeInfo_Area == area || C.HomeInfo_HouseType == houseType || C.HomeInfo_Type == type).ToList();
             return View(homes);
         }
-        public ActionResult ChuShouIndex()
+        public ActionResult ChuShouIndex(string position, double minPrice, double maxPrice, string area, string houseType, string type)
         {
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
+            homes = homes.Where(C => C.HomeInfo_InfoType == 1 || C.HomeInfo_PosiTion.Contains(position) || C.HomeInfo_AvgPrice >= minPrice && C.HomeInfo_AvgPrice <= maxPrice || C.HomeInfo_Area == area || C.HomeInfo_HouseType == houseType || C.HomeInfo_Type == type).ToList();
             return View(homes);
         }
         public ActionResult SelectIndex()
@@ -65,7 +65,7 @@ namespace YJMVC.Controllers
             HomeInfo_PhotoPath.SaveAs(path);
             home.HomeInfo_InfoType = 1;
             home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
-            home.HomeInfo_UserId =Convert.ToInt32(Session["Account_Id"]);
+            home.HomeInfo_UserId = Convert.ToInt32(Session["Account_Id"]);
             string json = JsonConvert.SerializeObject(home);
             string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
             int result = JsonConvert.DeserializeObject<int>(jsonStr);

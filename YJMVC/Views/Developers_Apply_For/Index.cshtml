@@ -1,0 +1,71 @@
+﻿@model IEnumerable<YJMVC.Models.HomeInfoModel>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_LayoutView.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeInfo_Xq_Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeInfo_IntroDuce)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeInfo_PhotoPath)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeInfo_PosiTion)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeInfo_Contact)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeInfo_Phone)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.HomeInfo_InfoType)
+        </th>
+       
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeInfo_Xq_Name)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeInfo_IntroDuce)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeInfo_PhotoPath)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeInfo_PosiTion)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeInfo_Contact)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeInfo_Phone)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.HomeInfo_InfoType)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+        </td>
+    </tr>
+}
+
+</table>

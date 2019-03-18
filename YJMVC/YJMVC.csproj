@@ -1336,6 +1336,7 @@
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.ttf" />
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.woff" />
     <Content Include="Views\HomeInfo\XiangQingIndex.cshtml" />
+    <Content Include="Views\Developers_Apply_For\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -1343,7 +1344,6 @@
     <Folder Include="Scripts\vendor\font-awesome\less\" />
     <Folder Include="Scripts\vendor\font-awesome\scss\" />
     <Folder Include="Views\DayCost\" />
-    <Folder Include="Views\Developers_Apply_For\" />
     <Folder Include="Views\InfoState\" />
     <Folder Include="Views\LevelCost\" />
     <Folder Include="Views\MoneyRecord\" />
