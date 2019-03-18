@@ -19,11 +19,19 @@ namespace YJMVC.Controllers
         // GET: HomeInfo
         public ActionResult ChuZuIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
+            return View(homes);
         }
         public ActionResult ChuShouIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
+            return View(homes);
         }
         public ActionResult SelectIndex()
         {
@@ -31,15 +39,24 @@ namespace YJMVC.Controllers
         }
         public ActionResult TwoIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            return View(homes);
         }
         public ActionResult ThreeIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            return View(homes);
         }
         public ActionResult FourIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            return View(homes);
         }
         [HttpPost]
         public ActionResult MaiFang(HttpPostedFileBase HomeInfo_PhotoPath, HomeInfoModel home)
@@ -48,37 +65,46 @@ namespace YJMVC.Controllers
             HomeInfo_PhotoPath.SaveAs(path);
             home.HomeInfo_InfoType = 1;
             home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
+            home.HomeInfo_UserId =Convert.ToInt32(Session["Account_Id"]);
             string json = JsonConvert.SerializeObject(home);
             string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
             int result = JsonConvert.DeserializeObject<int>(jsonStr);
             if (result > 0)
             {
-                Response.Write("<script>location.href='/HomeInfo/ChuShouIndex/'</script>");
+                return Content("<script>location.href='/HomeInfo/ChuShouIndex/'</script>");
             }
             else
             {
-                Response.Write("<script>alert('添加失败')</script>");
+                return Content("<script>alert('发布失败了!')</script>");
             }
-            return View();
         }
-        public ActionResult ZuFang(HttpPostedFileBase fangimg, HomeInfoModel home)
+        [HttpPost]
+        public ActionResult ZuFang(HttpPostedFileBase HomeInfo_PhotoPath, HomeInfoModel home)
         {
-            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "FangImg\\" + fangimg.FileName);
-            fangimg.SaveAs(path);
-            home.HomeInfo_InfoType = 1;
-            home.HomeInfo_PhotoPath = fangimg.FileName;
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "Images\\" + HomeInfo_PhotoPath.FileName);
+            HomeInfo_PhotoPath.SaveAs(path);
+            home.HomeInfo_InfoType = 2;
+            home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
+            home.HomeInfo_UserId = Convert.ToInt32(Session["Account_Id"]);
             string json = JsonConvert.SerializeObject(home);
             string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
             int result = JsonConvert.DeserializeObject<int>(jsonStr);
             if (result > 0)
             {
-                Response.Write("<script>location.href='/HomeInfo/ChuShouIndex'</script>");
+                return Content("<script>location.href='/HomeInfo/ChuZuIndex/'</script>");
             }
             else
             {
-                Response.Write("<script>alert('发布失败')</script>");
+                return Content("<script>alert('发布失败了!')</script>");
             }
-            return View();
+        }
+        public ActionResult XiangQingIndex(int Id)
+        {
+            string json = HttpClientHelper.SendRequest("api/HomeInfo/ShowById?id=" + Id, "get");
+            HomeInfoModel homes = JsonConvert.DeserializeObject<HomeInfoModel>(json);
+            ViewBag.Id = homes.HomeInfo_Id;
+            //根据房屋信息类型判断是出售还是出租
+            return View(homes);
         }
     }
 }

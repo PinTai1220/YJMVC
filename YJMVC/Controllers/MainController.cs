@@ -3,6 +3,9 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using YJMVC.Helper;
+using YJMVC.Models;
+using Newtonsoft.Json;
 
 namespace YJMVC.Controllers
 {
@@ -16,7 +19,11 @@ namespace YJMVC.Controllers
         //主页面
         public ActionResult MainIndex()
         {
-            return View();
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
+            return View(homes);
         }
         //关于我们
         public ActionResult AboutIndex()

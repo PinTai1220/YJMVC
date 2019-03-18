@@ -1,4 +1,4 @@
-﻿
+﻿@model List<YJMVC.Models.HomeInfoModel>
 @{
     ViewBag.Title = "三列显示";
     Layout = "~/Views/Shared/_QianTaiView.cshtml";
@@ -13,49 +13,13 @@
     <div class="gallery-section">
         <div class="container">
             <div class="gallery-grids">
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s1.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s1.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s2.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s2.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s3.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s3.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="gallery-grids galry">
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s4.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s4.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s5.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s5.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s6.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s6.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="clearfix"></div>
-            </div>
-            <div class="gallery-grids galry">
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s3.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s3.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s7.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s7.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="col-md-4 gallery-grid1">
-                    <a href="/QianTai/images/s5.jpg" class="swipebox"><span class="rollover1"> </span></a>
-                    <img src="/QianTai/images/s5.jpg" class="img-responsive" alt="/">
-                </div>
-                <div class="clearfix"></div>
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 gallery-grid1" style="margin-top:15px">
+                        <a href="~/Images/@item.HomeInfo_PhotoPath" class="swipebox"><span class="rollover1"> </span></a>
+                        <img src="~/Images/@item.HomeInfo_PhotoPath" style="width:450px;height:264px" class="img-responsive" alt="/">
+                    </div>
+                }
             </div>
         </div>
     </div>
