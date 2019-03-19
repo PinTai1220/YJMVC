@@ -23,7 +23,7 @@ namespace YJMVC.Controllers
             //根据房屋信息类型判断是出售还是出租
             homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
             return View(homes);
-        }
+        } 
 
         /// <summary>
         /// 查询 出租房屋查询
@@ -65,7 +65,7 @@ namespace YJMVC.Controllers
             else
             {
                 minPrice = Convert.ToInt32(price.Split('-')[0]);
-                minPrice = Convert.ToInt32(price.Split('-')[1]);
+                maxPrice = Convert.ToInt32(price.Split('-')[1]);
             }
 
             #endregion
@@ -171,9 +171,11 @@ namespace YJMVC.Controllers
             string json = HttpClientHelper.SendRequest("api/HomeInfo/ShowById?id=" + Id, "get");
             HomeInfoModel homes = JsonConvert.DeserializeObject<HomeInfoModel>(json);
             ViewBag.Id = homes.HomeInfo_Id;
-
-            
             //根据房屋信息类型判断是出售还是出租
+            List<HomeInfoModel> house= GetHomeInfos();
+            //根据房屋信息类型判断是出售还是出租
+            house = house.Where(C => C.HomeInfo_InfoType == 3).ToList();
+            ViewBag.homes = house;
             return View(homes);
         }
     }

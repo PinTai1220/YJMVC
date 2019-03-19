@@ -21,7 +21,7 @@ namespace YJMVC.Controllers
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
+            homes = homes.Where(C => C.HomeInfo_InfoType == 3).ToList();
             return View(homes);
         }
 
@@ -36,6 +36,14 @@ namespace YJMVC.Controllers
         public ActionResult AddDev(Developers_Apply_ForController developers)
         {
             return View();
+        }
+        public ActionResult QianTaiIndex()
+        {
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            homes = homes.Where(C => C.HomeInfo_InfoType == 3).ToList();
+            return View(homes);
         }
     }
 }
