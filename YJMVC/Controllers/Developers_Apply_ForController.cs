@@ -26,6 +26,15 @@ namespace YJMVC.Controllers
             return View(homes);
         }
 
+        public string ShowGuangGao()
+        {
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            homes = homes.Where(c => c.HomeInfo_InfoType == 2).ToList();
+            json = JsonConvert.SerializeObject(homes);
+            return json;
+        }
+
         [HttpGet]
         public ActionResult AddDev()
         {
@@ -34,11 +43,11 @@ namespace YJMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddDev(Developers_Apply_ForModel developers,HttpPostedFileBase fileBase)
+        public ActionResult AddDev(Developers_Apply_ForModel developers, HttpPostedFileBase fileBase)
         {
             //上传图片
             string jue = Server.MapPath("/Images/");
-            fileBase.SaveAs(jue+fileBase.FileName);
+            fileBase.SaveAs(jue + fileBase.FileName);
             developers.Developers_PhotoPath = fileBase.FileName;
             string json = JsonConvert.SerializeObject(developers);
             string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
