@@ -25,6 +25,19 @@ namespace YJMVC.Controllers
             homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
             return View(homes);
         }
+
+        /// <summary>
+        /// 查询 出租房屋查询
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetChuZhuHomeInfos(string position, double minPrice, double maxPrice, string houseType, string type)
+        {
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            homes = homes.Where(c => c.HomeInfo_InfoType == 2 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
+
+            return View("ChuZuIndex", homes);
+        }
         public ActionResult ChuShouIndex()
         {
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
@@ -32,6 +45,18 @@ namespace YJMVC.Controllers
             //根据房屋信息类型判断是出售还是出租
             homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
             return View(homes);
+        }
+        /// <summary>
+        /// 查询 出售房屋查询
+        /// </summary>
+        /// <returns></returns>
+        public ActionResult GetChuShowHomeInfos(string position, double minPrice, double maxPrice, string houseType, string type)
+        {
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            homes = homes.Where(c => c.HomeInfo_InfoType == 1 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
+
+            return View("ChuShouIndex", homes);
         }
         public ActionResult SelectIndex()
         {
@@ -65,7 +90,7 @@ namespace YJMVC.Controllers
             HomeInfo_PhotoPath.SaveAs(path);
             home.HomeInfo_InfoType = 1;
             home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
-            home.HomeInfo_UserId =Convert.ToInt32(Session["Account_Id"]);
+            home.HomeInfo_UserId = Convert.ToInt32(Session["Account_Id"]);
             string json = JsonConvert.SerializeObject(home);
             string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
             int result = JsonConvert.DeserializeObject<int>(jsonStr);

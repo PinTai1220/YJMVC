@@ -1337,6 +1337,7 @@
     <Content Include="Scripts\ueditor\third-party\video-js\font\vjs.woff" />
     <Content Include="Views\HomeInfo\XiangQingIndex.cshtml" />
     <Content Include="Views\Developers_Apply_For\QianTaiIndex.cshtml" />
+    <Content Include="Views\Developers_Apply_For\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
