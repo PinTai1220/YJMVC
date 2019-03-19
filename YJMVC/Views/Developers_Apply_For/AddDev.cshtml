@@ -1,64 +1,78 @@
-﻿@model YJMVC.Models.Developers_Apply_ForModel
+﻿@model YJMVC.Models.HomeInfoModel
 
 @{
     ViewBag.Title = "AddDev";
     Layout = "~/Views/Shared/_LayoutView.cshtml";
 }
 
-<h2>AddDev</h2>
+<h2>添加广告推广</h2>
 
 
-@using (Html.BeginForm()) 
+@using (Html.BeginForm("AddDev", "Developers_Apply_For",FormMethod.Post,new { enctype="multipart/form-data"}))
 {
     @Html.AntiForgeryToken()
     
     <div class="form-horizontal">
-        <h4>Developers_Apply_ForModel</h4>
+        <h4>HomeInfoModel</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
-            @Html.LabelFor(model => model.Developers_Id, htmlAttributes: new { @class = "control-label col-md-2" })
+            小区名称
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Developers_Id, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Developers_Id, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.HomeInfo_Xq_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_Xq_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            详细介绍
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeInfo_IntroDuce, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_IntroDuce, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Developers_UserId, htmlAttributes: new { @class = "control-label col-md-2" })
+            图片
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Developers_UserId, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Developers_UserId, "", new { @class = "text-danger" })
+                <input id="File1" type="file" name="fileBase" />
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Developers_PhotoPath, htmlAttributes: new { @class = "control-label col-md-2" })
+           位置
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Developers_PhotoPath, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Developers_PhotoPath, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.HomeInfo_PosiTion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_PosiTion, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Developers_Info, htmlAttributes: new { @class = "control-label col-md-2" })
+           联系人
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Developers_Info, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Developers_Info, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.HomeInfo_Contact, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_Contact, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.Developers_TimeG, htmlAttributes: new { @class = "control-label col-md-2" })
+            手机号
             <div class="col-md-10">
-                @Html.EditorFor(model => model.Developers_TimeG, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.Developers_TimeG, "", new { @class = "text-danger" })
+                @Html.EditorFor(model => model.HomeInfo_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            类型
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeInfo_InfoType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_InfoType, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="form-group">
             <div class="col-md-offset-2 col-md-10">
-                <input type="submit" value="Create" class="btn btn-default" />
+                <input type="submit" value="添加" class="btn btn-default" />
             </div>
         </div>
     </div>
@@ -68,6 +82,6 @@
     @Html.ActionLink("Back to List", "Index")
 </div>
 
-@section Scripts {
+@*@section Scripts {
     @Scripts.Render("~/bundles/jqueryval")
-}
+}*@

@@ -51,7 +51,7 @@ namespace YJMVC.Controllers
         {
             #region 价钱计算
 
-            int minPrice, maxPrice;
+            int minPrice=0, maxPrice=0;
             if (price.Equals("200以下"))
             {
                 minPrice = 0;

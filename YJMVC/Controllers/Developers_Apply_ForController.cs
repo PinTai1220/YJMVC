@@ -45,7 +45,7 @@ namespace YJMVC.Controllers
             int result = JsonConvert.DeserializeObject<int>(jsonStr);
             if (result > 0)
             {
-                return Content("<script>location.href='/HomeInfo/ChuZuIndex/'</script>");
+                return Content("<script>location.href='/Developers_Apply_For/Index/'</script>");
             }
             else
             {
