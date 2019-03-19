@@ -17,13 +17,15 @@
                 <div class="col-md-9 blog-grid">
                     @foreach (var item in Model)
                     {
-                        <div class="blog">
-                            <h3><a href="single.html">@item.HomeInfo_Xq_Name</a></h3>
-                            <p>January 05, 2016 / <a href="#">John Doe</a> / <a href="#">Uncategorized</a> / <a href="#">0 Comments</a></p>
-                            <a href="single.html"><img src="images/b.jpg" class="img-responsive" alt="" /></a>
-                            <p>Tart donut gummi bears unerdwear.com tootsie roll chocolate bar gummi bears bear claw. Apple pie tart chocolate cake jelly beans. Unerdwear.com dragée sweet muffin icing macaroon. Jelly marzipan toffee cotton candy sweet roll. Jelly croissant jujubes carrot cake marshmallow donut biscuit wafer marzipan. Muffin pastry jujubes donut pastry chocolate bar cake candy chocolate. Dessert donut</p>
-                            <a href="single.html" class="button5 hvr-shutter-out-horizontal">Read More</a>
-                        </div>
+                        @if (item.HomeInfo_InfoType == 3)
+                        {
+                            <div class="blog">
+                                <h3><a href="single.html">@item.HomeInfo_Xq_Name</a></h3>
+                                <a href="/HomeInfo/XiangQingIndex"><img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="" /></a>
+                                <p>@item.HomeInfo_IntroDuce</p>
+                                <a href="/HomeInfo/XiangQingIndex" class="button5 hvr-shutter-out-horizontal">知道更多</a>
+                            </div>
+                        }
                     }
                 </div>
                 <div class="col-md-3 blog-grid1">

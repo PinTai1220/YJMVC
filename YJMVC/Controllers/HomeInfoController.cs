@@ -166,6 +166,8 @@ namespace YJMVC.Controllers
             string json = HttpClientHelper.SendRequest("api/HomeInfo/ShowById?id=" + Id, "get");
             HomeInfoModel homes = JsonConvert.DeserializeObject<HomeInfoModel>(json);
             ViewBag.Id = homes.HomeInfo_Id;
+
+            
             //根据房屋信息类型判断是出售还是出租
             return View(homes);
         }
