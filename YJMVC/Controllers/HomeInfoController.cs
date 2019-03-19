@@ -19,8 +19,7 @@ namespace YJMVC.Controllers
         // GET: HomeInfo
         public ActionResult ChuZuIndex()
         {
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            List<HomeInfoModel> homes = GetHomeInfos();
             //根据房屋信息类型判断是出售还是出租
             homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
             return View(homes);
@@ -32,17 +31,14 @@ namespace YJMVC.Controllers
         /// <returns></returns>
         public ActionResult GetChuZhuHomeInfos(string position, string city, double minPrice,double maxPrice, string houseType, string type)
         {
-         
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            List<HomeInfoModel> homes = GetHomeInfos();
             homes = homes.Where(c => c.HomeInfo_InfoType == 2 || c.HomeInfo_PosiTion.Contains(position + city) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
 
             return View("ChuZuIndex", homes);
         }
         public ActionResult ChuShouIndex()
         {
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            List<HomeInfoModel> homes = GetHomeInfos();
             //根据房屋信息类型判断是出售还是出租
             homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
             return View(homes);
@@ -53,6 +49,8 @@ namespace YJMVC.Controllers
         /// <returns></returns>
         public ActionResult GetChuShowHomeInfos(string position, string city, string price, string houseType, string type,string area)
         {
+            #region 价钱计算
+
             int minPrice, maxPrice;
             if (price.Equals("200以下"))
             {
@@ -66,9 +64,12 @@ namespace YJMVC.Controllers
             }
             else
             {
-                minPrice = Convert.ToInt32(price.Substring(0, 3));
-                maxPrice = Convert.ToInt32(price.Substring(4, 3));
+                minPrice = Convert.ToInt32(price.Split('-')[0]);
+                minPrice = Convert.ToInt32(price.Split('-')[1]);
             }
+
+            #endregion
+
 
             #region 面积计算
             int minArea, maxArea;
@@ -84,14 +85,13 @@ namespace YJMVC.Controllers
             }
             else
             {
-                minArea = Convert.ToInt32(price.Substring(0, 2));
+                minArea = Convert.ToInt32(price.Split('-'));
                 maxArea = Convert.ToInt32(price.Substring(3, 2));
             }
             #endregion
 
-
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            
+            List<HomeInfoModel> homes = GetHomeInfos();
             homes = homes.Where(c => c.HomeInfo_InfoType == 1 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_Price >= minPrice || c.HomeInfo_Price <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type|| c.HomeInfo_Area >= minArea || c.HomeInfo_Area <= maxArea).ToList();
 
             return View("ChuShouIndex", homes);
@@ -102,25 +102,30 @@ namespace YJMVC.Controllers
         }
         public ActionResult TwoIndex()
         {
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            List<HomeInfoModel> homes = GetHomeInfos();
             //根据房屋信息类型判断是出售还是出租
             return View(homes);
         }
         public ActionResult ThreeIndex()
         {
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            List<HomeInfoModel> homes = GetHomeInfos();
             //根据房屋信息类型判断是出售还是出租
             return View(homes);
         }
         public ActionResult FourIndex()
         {
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            List<HomeInfoModel> homes = GetHomeInfos();
             //根据房屋信息类型判断是出售还是出租
             return View(homes);
         }
+
+        private static List<HomeInfoModel> GetHomeInfos()
+        {
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            return homes;
+        }
+
         [HttpPost]
         public ActionResult MaiFang(HttpPostedFileBase HomeInfo_PhotoPath, HomeInfoModel home)
         {
