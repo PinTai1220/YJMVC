@@ -29,10 +29,10 @@ namespace YJMVC.Controllers
         /// 查询 出租房屋查询
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetChuZhuHomeInfos(string position, string city, double minPrice,double maxPrice, string houseType, string type)
+        public ActionResult GetChuZhuHomeInfos(string position = "", string city = "", double minPrice = 0, double maxPrice = 99999999999, string houseType = "", string type = "")
         {
             List<HomeInfoModel> homes = GetHomeInfos();
-            homes = homes.Where(c => c.HomeInfo_InfoType == 2 || c.HomeInfo_PosiTion.Contains(position + city) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
+            homes = homes.Where(c => c.HomeInfo_InfoType == 2 && c.HomeInfo_PosiTion.Contains(position + city) && c.HomeInfo_AvgPrice >= minPrice && c.HomeInfo_AvgPrice <= maxPrice && c.HomeInfo_HouseType.Contains(houseType) && c.HomeInfo_Type.Contains(type)).ToList();
 
             return View("ChuZuIndex", homes);
         }
@@ -47,11 +47,11 @@ namespace YJMVC.Controllers
         /// 查询 出售房屋查询
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetChuShowHomeInfos(string position, string city, string price, string houseType, string type,string area)
+        public ActionResult GetChuShowHomeInfos(string position = "", string city = "", string price = "0-999999999", string houseType = "", string type = "", string area = "0-999999999")
         {
             #region 价钱计算
 
-            int minPrice, maxPrice;
+            int minPrice=0, maxPrice=0;
             if (price.Equals("200以下"))
             {
                 minPrice = 0;
@@ -85,14 +85,14 @@ namespace YJMVC.Controllers
             }
             else
             {
-                minArea = Convert.ToInt32(price.Split('-'));
-                maxArea = Convert.ToInt32(price.Substring(3, 2));
+                minArea = Convert.ToInt32(area.Split('-')[0]);
+                maxArea = Convert.ToInt32(area.Split('-')[1]);
             }
             #endregion
 
-            
+
             List<HomeInfoModel> homes = GetHomeInfos();
-            homes = homes.Where(c => c.HomeInfo_InfoType == 1 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_Price >= minPrice || c.HomeInfo_Price <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type|| c.HomeInfo_Area >= minArea || c.HomeInfo_Area <= maxArea).ToList();
+            homes = homes.Where(c => c.HomeInfo_InfoType == 1 && c.HomeInfo_PosiTion.Contains(position) && c.HomeInfo_Price >= minPrice && c.HomeInfo_Price <= maxPrice && c.HomeInfo_HouseType.Contains(houseType) && c.HomeInfo_Type.Contains(type) && c.HomeInfo_Area >= minArea && c.HomeInfo_Area <= maxArea).ToList();
 
             return View("ChuShouIndex", homes);
         }

@@ -1,0 +1,87 @@
+﻿@model YJMVC.Models.HomeInfoModel
+
+@{
+    ViewBag.Title = "AddDev";
+    Layout = "~/Views/Shared/_LayoutView.cshtml";
+}
+
+<h2>添加广告推广</h2>
+
+
+@using (Html.BeginForm("AddDev", "Developers_Apply_For",FormMethod.Post,new { enctype="multipart/form-data"}))
+{
+    @Html.AntiForgeryToken()
+    
+    <div class="form-horizontal">
+        <h4>HomeInfoModel</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            小区名称
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeInfo_Xq_Name, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_Xq_Name, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        <div class="form-group">
+            详细介绍
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeInfo_IntroDuce, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_IntroDuce, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            图片
+            <div class="col-md-10">
+                <input id="File1" type="file" name="fileBase" />
+            </div>
+        </div>
+
+        <div class="form-group">
+           位置
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeInfo_PosiTion, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_PosiTion, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+           联系人
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeInfo_Contact, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_Contact, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            手机号
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeInfo_Phone, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_Phone, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            类型
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.HomeInfo_InfoType, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.HomeInfo_InfoType, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="添加" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}
+
+<div>
+    @Html.ActionLink("Back to List", "Index")
+</div>
+
+@*@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}*@

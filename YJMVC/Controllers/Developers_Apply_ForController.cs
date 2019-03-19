@@ -6,6 +6,7 @@ using System.Web;
 using System.Web.Mvc;
 using YJMVC.Helper;
 using YJMVC.Models;
+using System.IO;
 
 namespace YJMVC.Controllers
 {
@@ -33,9 +34,23 @@ namespace YJMVC.Controllers
         }
 
         [HttpPost]
-        public ActionResult AddDev(Developers_Apply_ForController developers)
+        public ActionResult AddDev(Developers_Apply_ForModel developers,HttpPostedFileBase fileBase)
         {
-            return View();
+            //上传图片
+            string jue = Server.MapPath("/Images/");
+            fileBase.SaveAs(jue+fileBase.FileName);
+            developers.Developers_PhotoPath = fileBase.FileName;
+            string json = JsonConvert.SerializeObject(developers);
+            string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
+            int result = JsonConvert.DeserializeObject<int>(jsonStr);
+            if (result > 0)
+            {
+                return Content("<script>location.href='/Developers_Apply_For/Index/'</script>");
+            }
+            else
+            {
+                return Content("<script>alert('添加失败了!')</script>");
+            }
         }
         public ActionResult QianTaiIndex()
         {
