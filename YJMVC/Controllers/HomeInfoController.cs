@@ -30,9 +30,9 @@ namespace YJMVC.Controllers
         /// 查询 出租房屋查询
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetChuZhuHomeInfos(string position, string city, string minPrice, string maxPrice, string houseType, string type)
+        public ActionResult GetChuZhuHomeInfos(string position, string city, double minPrice,double maxPrice, string houseType, string type)
         {
-
+         
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             homes = homes.Where(c => c.HomeInfo_InfoType == 2 || c.HomeInfo_PosiTion.Contains(position + city) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
@@ -51,7 +51,7 @@ namespace YJMVC.Controllers
         /// 查询 出售房屋查询
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetChuShowHomeInfos(string position, string city, string price, string houseType, string type)
+        public ActionResult GetChuShowHomeInfos(string position, string city, string price, string houseType, string type,string area)
         {
             int minPrice, maxPrice;
             if (price.Equals("200以下"))
@@ -66,14 +66,33 @@ namespace YJMVC.Controllers
             }
             else
             {
-                minPrice = Convert.ToInt32(price.Split('-')[0]);
-                maxPrice = Convert.ToInt32(price.Split('-')[1]);
+                minPrice = Convert.ToInt32(price.Substring(0, 3));
+                maxPrice = Convert.ToInt32(price.Substring(4, 3));
             }
+
+            #region 面积计算
+            int minArea, maxArea;
+            if (area.Equals("50以下"))
+            {
+                minArea = 0;
+                maxArea = 200;
+            }
+            else if (area.Equals("110以上"))
+            {
+                minArea = 500;
+                maxArea = 999999999;
+            }
+            else
+            {
+                minArea = Convert.ToInt32(price.Substring(0, 2));
+                maxArea = Convert.ToInt32(price.Substring(3, 2));
+            }
+            #endregion
 
 
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
-            homes = homes.Where(c => c.HomeInfo_InfoType == 1 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
+            homes = homes.Where(c => c.HomeInfo_InfoType == 1 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_Price >= minPrice || c.HomeInfo_Price <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type|| c.HomeInfo_Area >= minArea || c.HomeInfo_Area <= maxArea).ToList();
 
             return View("ChuShouIndex", homes);
         }

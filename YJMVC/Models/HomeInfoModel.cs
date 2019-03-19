@@ -25,7 +25,7 @@ namespace YJMVC.Models
         /// <summary>
         /// 建筑面积
         /// </summary>
-        public string HomeInfo_Area { get; set; }
+        public int HomeInfo_Area { get; set; }
         /// <summary>
         /// 均价
         /// </summary>
