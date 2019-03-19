@@ -30,9 +30,9 @@ namespace YJMVC.Controllers
         /// 查询 出租房屋查询
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetChuZhuHomeInfos(string position, string city, string minPrice,string maxPrice, string houseType, string type)
+        public ActionResult GetChuZhuHomeInfos(string position, string city, string minPrice, string maxPrice, string houseType, string type)
         {
-         
+
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             homes = homes.Where(c => c.HomeInfo_InfoType == 2 || c.HomeInfo_PosiTion.Contains(position + city) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
@@ -66,8 +66,8 @@ namespace YJMVC.Controllers
             }
             else
             {
-                minPrice = Convert.ToInt32(price.Substring(0, 3));
-                maxPrice = Convert.ToInt32(price.Substring(3, 3));
+                minPrice = Convert.ToInt32(price.Split('-')[0]);
+                maxPrice = Convert.ToInt32(price.Split('-')[1]);
             }
 
 
