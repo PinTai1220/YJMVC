@@ -22,7 +22,7 @@ namespace YJMVC.Controllers
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
+            homes = homes.Where(C => C.HomeInfo_InfoType == 3).ToList();
             return View(homes);
         }
 
@@ -54,12 +54,20 @@ namespace YJMVC.Controllers
             int result = JsonConvert.DeserializeObject<int>(jsonStr);
             if (result > 0)
             {
-                return Content("<script>location.href='/HomeInfo/ChuZuIndex/'</script>");
+                return Content("<script>location.href='/Developers_Apply_For/Index/'</script>");
             }
             else
             {
                 return Content("<script>alert('添加失败了!')</script>");
             }
+        }
+        public ActionResult QianTaiIndex()
+        {
+            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
+            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
+            //根据房屋信息类型判断是出售还是出租
+            homes = homes.Where(C => C.HomeInfo_InfoType == 3).ToList();
+            return View(homes);
         }
     }
 }
