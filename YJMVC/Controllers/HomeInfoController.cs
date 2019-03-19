@@ -30,11 +30,12 @@ namespace YJMVC.Controllers
         /// 查询 出租房屋查询
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetChuZhuHomeInfos(string position, double minPrice, double maxPrice, string houseType, string type)
+        public ActionResult GetChuZhuHomeInfos(string position, string city, string minPrice,string maxPrice, string houseType, string type)
         {
+         
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
-            homes = homes.Where(c => c.HomeInfo_InfoType == 2 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
+            homes = homes.Where(c => c.HomeInfo_InfoType == 2 || c.HomeInfo_PosiTion.Contains(position + city) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();
 
             return View("ChuZuIndex", homes);
         }
@@ -50,8 +51,26 @@ namespace YJMVC.Controllers
         /// 查询 出售房屋查询
         /// </summary>
         /// <returns></returns>
-        public ActionResult GetChuShowHomeInfos(string position, double minPrice, double maxPrice, string houseType, string type)
+        public ActionResult GetChuShowHomeInfos(string position, string city, string price, string houseType, string type)
         {
+            int minPrice, maxPrice;
+            if (price.Equals("200以下"))
+            {
+                minPrice = 0;
+                maxPrice = 200;
+            }
+            else if (price.Equals("500以上"))
+            {
+                minPrice = 500;
+                maxPrice = 999999999;
+            }
+            else
+            {
+                minPrice = Convert.ToInt32(price.Substring(0, 3));
+                maxPrice = Convert.ToInt32(price.Substring(3, 3));
+            }
+
+
             string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             homes = homes.Where(c => c.HomeInfo_InfoType == 1 || c.HomeInfo_PosiTion.Contains(position) || c.HomeInfo_AvgPrice >= minPrice || c.HomeInfo_AvgPrice <= maxPrice || c.HomeInfo_HouseType == houseType || c.HomeInfo_Type == type).ToList();

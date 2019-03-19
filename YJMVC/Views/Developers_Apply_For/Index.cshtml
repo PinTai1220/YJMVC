@@ -5,33 +5,34 @@
     Layout = "~/Views/Shared/_LayoutView.cshtml";
 }
 
-<h2>Index</h2>
-
 <p>
-    @Html.ActionLink("Create New", "Create")
+    <h2>
+    广告推广列表
+     </h2>
 </p>
+
 <table class="table">
     <tr>
         <th>
-            @Html.DisplayNameFor(model => model.HomeInfo_Xq_Name)
+            小区名称
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HomeInfo_IntroDuce)
+            详情介绍
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HomeInfo_PhotoPath)
+            图片
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HomeInfo_PosiTion)
+            位置
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HomeInfo_Contact)
+            联系人
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HomeInfo_Phone)
+            手机号
         </th>
         <th>
-            @Html.DisplayNameFor(model => model.HomeInfo_InfoType)
+            类型
         </th>
        
         <th></th>
@@ -46,7 +47,7 @@
             @Html.DisplayFor(modelItem => item.HomeInfo_IntroDuce)
         </td>
         <td>
-            @Html.DisplayFor(modelItem => item.HomeInfo_PhotoPath)
+            <img src="/Images/@item.HomeInfo_PhotoPath" alt="Alternate Text" />
         </td>
         <td>
             @Html.DisplayFor(modelItem => item.HomeInfo_PosiTion)

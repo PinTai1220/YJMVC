@@ -22,7 +22,7 @@ namespace YJMVC.Controllers
             List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
             //根据房屋信息类型判断是出售还是出租
             homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
-            return View();
+            return View(homes);
         }
 
         [HttpGet]
