@@ -80,102 +80,104 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3 properties-right" style="float:left">
-                    <div class="properties-top">
-                        <h4>找到你所需要的房屋</h4>
-                        <div class="yourplace">
-                            <h5>所在省市</h5>
-                            <select name="HomeInfo" class="sel2">
-                                <option value="请选择">请选择</option>
-                                <option value="上海">上海</option>
-                            </select>
-                        </div>
-                        <div class="yourplace">
-                            <h5>所在地点</h5>
-                            <select class="sel2">
-                                <option value="请选择">请选择</option>
-                                <option value="浦东新区">浦东新区</option>
-                                <option value="杨浦区">杨浦区</option>
-                                <option value="嘉定区">嘉定区</option>
-                                <option value="徐汇区">徐汇区</option>
-                                <option value="闵行区">闵行区</option>
-                                <option value="普陀区">普陀区</option>
-                                <option value="静安区">静安区</option>
-                                <option value="黄浦区">黄浦区</option>
-                            </select>
-                        </div>
-                        <div class="yourplace">
-                            <h5>房屋类型</h5>
-                            <select class="sel2">
-                                <option value="请选择">请选择</option>
-                                <option value="住宅">住宅</option>
-                                <option value="别墅">别墅</option>
-                                <option value="商业">商业</option>
-                                <option value="写字楼">写字楼</option>
-                            </select>
-                        </div>
-                        <div class="yourplace">
-                            <h5>房型</h5>
-                            <select class="sel2">
-                                <option value="请选择">请选择</option>
-                                <option value="一室">一室</option>
-                                <option value="二室">二室</option>
-                                <option value="三室">三室</option>
-                                <option value="四室">四室</option>
-                                <option value="五室及以上">五室及以上</option>
-                            </select>
-                        </div>
-                        <div class="yourplace-grids">
-                            <div class="col-md-6 yourplace-grid">
-                                <h5>售价</h5>
-                                <select name="" class="sel3">
+
+                <form action="/HomeInfo/GetChuShowHomeInfos">
+                    <div class="col-md-3 properties-right" style="float:left">
+                        <div class="properties-top">
+                            <h4>找到你所需要的房屋</h4>
+                            <div class="yourplace">
+                                <h5>所在省市</h5>
+                                <select name="position" class="sel2">
                                     <option value="请选择">请选择</option>
-                                    <option value="200万以下">200万以下</option>
-                                    <option value="200-300万">200-300万</option>
-                                    <option value="300-400万">300-400万</option>
-                                    <option value="400-500万">400-500万</option>
-                                    <option value="500万以上">500万及以上</option>
+                                    <option value="上海">上海</option>
                                 </select>
                             </div>
-                            <div class="col-md-6 yourplace-grid">
-                                <h5>面积</h5>
-                                <select class="sel3">
+                            <div class="yourplace">
+                                <h5>所在地点</h5>
+                                <select name="city" class="sel2">
                                     <option value="请选择">请选择</option>
-                                    <option value="50平以下">50平以下</option>
-                                    <option value="50-70平米">50-70平米</option>
-                                    <option value="70-90平米">70-90平米</option>
-                                    <option value="90-110平米">90-110平米</option>
-                                    <option value="110平米以上">110平米以上</option>
+                                    <option value="浦东新区">浦东新区</option>
+                                    <option value="杨浦区">杨浦区</option>
+                                    <option value="嘉定区">嘉定区</option>
+                                    <option value="徐汇区">徐汇区</option>
+                                    <option value="闵行区">闵行区</option>
+                                    <option value="普陀区">普陀区</option>
+                                    <option value="静安区">静安区</option>
+                                    <option value="黄浦区">黄浦区</option>
+                                    <option value="奉贤区">奉贤区</option>
                                 </select>
                             </div>
-                            <div class="clearfix"></div>
-                        </div>
-                        <div class="search1">
-                            <form>
+                            <div class="yourplace">
+                                <h5>房屋类型</h5>
+                                <select name="type" class="sel2">
+                                    <option value="请选择">请选择</option>
+                                    <option value="住宅">住宅</option>
+                                    <option value="别墅">别墅</option>
+                                    <option value="商业">商业</option>
+                                    <option value="写字楼">写字楼</option>
+                                </select>
+                            </div>
+                            <div class="yourplace">
+                                <h5>房型</h5>
+                                <select name="houseType" class="sel2">
+                                    <option value="请选择">请选择</option>
+                                    <option value="一室">一室</option>
+                                    <option value="二室">二室</option>
+                                    <option value="三室">三室</option>
+                                    <option value="四室">四室</option>
+                                    <option value="五室及以上">五室及以上</option>
+                                </select>
+                            </div>
+                            <div class="yourplace-grids">
+                                <div class="col-md-6 yourplace-grid">
+                                    <h5>售价</h5>
+                                    <select name="price" class="sel3">
+                                        <option value="请选择">请选择</option>
+                                        <option value="200以下">200万以下</option>
+                                        <option value="200-300">200-300万</option>
+                                        <option value="300-400">300-400万</option>
+                                        <option value="400-500">400-500万</option>
+                                        <option value="500以上">500万及以上</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 yourplace-grid">
+                                    <h5>面积</h5>
+                                    <select name="area" class="sel3">
+                                        <option value="请选择">请选择</option>
+                                        <option value="50以下">50平以下</option>
+                                        <option value="50-60">50-60平米</option>
+                                        <option value="60-80">60-80平米</option>
+                                        <option value="80-90">80-90平米</option>
+                                        <option value="110以上">110平米以上</option>
+                                    </select>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="search1">
                                 <input type="submit" value="查询">
-                            </form>
+                            </div>
                         </div>
+                </form>
+                <div class="feature">
+                    <h4>特色房屋</h4>
+                    <div class="feature-top">
+                        <img src="/QianTai/images/s5.jpg" class="img-responsive" alt="/">
+                        <h5>60 Merrick Way, Miami</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
                     </div>
-                    <div class="feature">
-                        <h4>特色房屋</h4>
-                        <div class="feature-top">
-                            <img src="/QianTai/images/s5.jpg" class="img-responsive" alt="/">
-                            <h5>60 Merrick Way, Miami</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                        </div>
-                        <div class="feature-top top2">
-                            <img src="/QianTai/images/s6.jpg" class="img-responsive" alt="/">
-                            <h5>Villa in Hialeah, Dade</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                        </div>
-                        <div class="feature-top top2">
-                            <img src="/QianTai/images/s4.jpg" class="img-responsive" alt="/">
-                            <h5>Villa in Hialeah, Dade</h5>
-                            <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
-                        </div>
+                    <div class="feature-top top2">
+                        <img src="/QianTai/images/s6.jpg" class="img-responsive" alt="/">
+                        <h5>Villa in Hialeah, Dade</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
+                    </div>
+                    <div class="feature-top top2">
+                        <img src="/QianTai/images/s4.jpg" class="img-responsive" alt="/">
+                        <h5>Villa in Hialeah, Dade</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">Know More</a></p>
                     </div>
                 </div>
-                <div class="clearfix"></div>
+            </div>
+            <div class="clearfix"></div>
             </div>
         </div>
     </div>
