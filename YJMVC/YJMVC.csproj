@@ -885,6 +885,8 @@
     <Content Include="Views\Main\FuWuIndex.cshtml" />
     <Content Include="Views\Main\LianXiIndex.cshtml" />
     <Content Include="Views\Users\Login.cshtml" />
+    <Content Include="Views\Users\GLogin.cshtml" />
+    <Content Include="Views\HomeInfo\HouTaiInde.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -892,7 +894,6 @@
     <Folder Include="Scripts\vendor\font-awesome\scss\" />
     <Folder Include="Views\DayCost\" />
     <Folder Include="Views\Developers_Apply_For\" />
-    <Folder Include="Views\HomeInfo\" />
     <Folder Include="Views\InfoState\" />
     <Folder Include="Views\LevelCost\" />
     <Folder Include="Views\MoneyRecord\" />

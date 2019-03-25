@@ -13,7 +13,11 @@ namespace YJMVC.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: Users
-        public ActionResult Login()
+        public ActionResult GLogin()
+        {
+            return View();
+        }
+        public ActionResult Logined(string account,string pwd)
         {
             return View();
         }
