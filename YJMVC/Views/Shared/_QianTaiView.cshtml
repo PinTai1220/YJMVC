@@ -364,7 +364,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                         <div class="login">
 
                             <div class="login-right">
-                                @using (Html.BeginForm("MaiFang", "HomeInfo",null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                @using (Html.BeginForm("MaiFang", "HomeInfo", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
                                 {
                                     <h3>我要卖房</h3>
                                     <div>
@@ -395,6 +395,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <option value="五室及以上">五室及以上</option>
                                         </select>
                                     </div>
+                                    <input type="text" name="HomeInfo_Xq_Name" value="小区名称" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '小区名称';}" required="">
                                     <div class="female" style="margin-top:20px">
                                         <label>推荐挂单等级</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -407,6 +408,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input type="text" name="DayCost_Money" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
                                     <input type="text" name="HomeInfo_Contact" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
                                     <input type="text" name="HomeInfo_Phone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
+                                    <textarea style="margin-top:20px" name="HomeInfo_IntroDuce" rows="6" cols="58" onpropertychange="if(this.scrollHeight>58) this.style.posHeight=this.scrollHeight+5"></textarea>
                                     <input type="submit" id="Save" value="发布" onclick="CheckUserId()">
                                 }
 
@@ -460,6 +462,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                             <option value="五室及以上">五室及以上</option>
                                         </select>
                                     </div>
+                                    <input type="text" name="HomeInfo_Xq_Name" value="小区名称" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '小区名称';}" required="">
                                     <div class="female" style="margin-top:20px">
                                         <label>推荐挂单等级</label>
                                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
@@ -472,6 +475,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                     <input type="text" name="DayCost_Money" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
                                     <input type="text" name="HomeInfo_Contact" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
                                     <input type="text" name="HomeInfo_Phone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
+                                    <textarea style="margin-top:20px" name="HomeInfo_IntroDuce" rows="6" cols="58" onpropertychange="if(this.scrollHeight>58) this.style.posHeight=this.scrollHeight+5"></textarea>
                                     <input type="submit" id="SaveZu" onclick="CheckId()" value="发布">
                                 }
                             </div>

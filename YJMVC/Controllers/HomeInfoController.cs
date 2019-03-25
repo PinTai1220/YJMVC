@@ -132,6 +132,7 @@ namespace YJMVC.Controllers
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "Images\\" + HomeInfo_PhotoPath.FileName);
             HomeInfo_PhotoPath.SaveAs(path);
             home.HomeInfo_InfoType = 1;
+            home.HomeInfo_CreateTime = DateTime.Now.ToShortDateString().ToString();
             home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
             home.HomeInfo_UserId = Convert.ToInt32(Session["Account_Id"]);
             string json = JsonConvert.SerializeObject(home);
@@ -152,6 +153,7 @@ namespace YJMVC.Controllers
             string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "Images\\" + HomeInfo_PhotoPath.FileName);
             HomeInfo_PhotoPath.SaveAs(path);
             home.HomeInfo_InfoType = 2;
+            home.HomeInfo_CreateTime = DateTime.Now.ToShortDateString().ToString();
             home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
             home.HomeInfo_UserId = Convert.ToInt32(Session["Account_Id"]);
             string json = JsonConvert.SerializeObject(home);

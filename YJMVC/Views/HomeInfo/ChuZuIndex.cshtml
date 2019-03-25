@@ -89,14 +89,18 @@
                                 </select>
                             </div>
                             <div class="yourplace">
-                                <h5>所有子位置</h5>
-                                <select class="sel2" name="city">
+                                <h5>所在地点</h5>
+                                <select name="city" class="sel2">
                                     <option value="">请选择</option>
                                     <option value="浦东新区">浦东新区</option>
                                     <option value="杨浦区">杨浦区</option>
                                     <option value="嘉定区">嘉定区</option>
                                     <option value="徐汇区">徐汇区</option>
                                     <option value="闵行区">闵行区</option>
+                                    <option value="普陀区">普陀区</option>
+                                    <option value="静安区">静安区</option>
+                                    <option value="黄浦区">黄浦区</option>
+                                    <option value="奉贤区">奉贤区</option>
                                 </select>
                             </div>
                             <div class="yourplace">
@@ -153,16 +157,18 @@
                 </form>
                 <div class="feature">
                     <h4>特色房屋</h4>
-                    <div class="feature-top">
-                        <img src="/QianTai/images/s6.jpg" class="img-responsive" alt="/">
-                        <h5>60 Merrick Way, Miami</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">知道更多</a></p>
-                    </div>
-                    <div class="feature-top top2">
-                        <img src="/QianTai/images/s7.jpg" class="img-responsive" alt="/">
-                        <h5>Villa in Hialeah, Dade</h5>
-                        <p>Lorem ipsum dolor sit amet, consectetuer  elit,… <a href="#">知道更多</a></p>
-                    </div>
+                    @foreach (var item in Model)
+                    {
+                        if (item.HomeInfo_InfoType == 2)
+                        {
+                            <div class="feature-top top2">
+                                <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
+                                <h5>@item.HomeInfo_PosiTion</h5>
+                                <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
+                            </div>
+                        }
+
+                    }
                 </div>
             </div>
                 <div class="clearfix"></div>
