@@ -8,12 +8,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>易家后台</title>
+    <title>GLogin</title>
     <script src="~/Scripts/index.js"></script>
     <link href="~/Scripts/css/style.css" rel="stylesheet" />
 </head>
 <body>
-    <div>
     <div class="container">
         <div class="login">
             <h1 class="login-heading">
@@ -30,7 +29,6 @@
             </div>
         </div>
     </div>
-</div>
 </body>
 </html>
 <script src="~/Scripts/jquery-3.3.1.min.js"></script>
@@ -44,8 +42,9 @@
             return;
         }
         else {
-            location.href = "/UserInfo/Login?Name=" + name + "&Pwd" + pwd;
+            location.href = "/UserInfo/Logined?account=" + name + "&Pwd" + pwd;
         }
     }
 
 </script>
+
