@@ -25,7 +25,7 @@ namespace YJMVC.Models
         /// <summary>
         /// 建筑面积
         /// </summary>
-        public string HomeInfo_Area { get; set; }
+        public int HomeInfo_Area { get; set; }
         /// <summary>
         /// 均价
         /// </summary>
@@ -38,6 +38,14 @@ namespace YJMVC.Models
         /// 单位
         /// </summary>
         public int HomeInfo_IsTao { get; set; }
+        /// <summary>
+        /// 类型
+        /// </summary>
+        public string HomeInfo_Type { get; set; }
+        /// <summary>
+        /// 房型
+        /// </summary>
+        public string HomeInfo_HouseType { get; set; }
         /// <summary>
         /// 价格
         /// </summary>
@@ -82,5 +90,33 @@ namespace YJMVC.Models
         /// 信息添加日期
         /// </summary>
         public string HomeInfo_CreateTime { get; set; }
+        /// <summary>
+        /// 开始时间
+        /// </summary>
+        public int InfoState_Start { get; set; }
+        /// <summary>
+        /// 上挂等级
+        /// </summary>
+        public int InfoState_Level { get; set; }
+        /// <summary>
+        /// 持续时间
+        /// </summary>
+        public int InfoState_Continuou { get; set; }
+        /// <summary>
+        /// 续费时间
+        /// </summary>
+        public string InfoState_Time { get; set; }
+        /// <summary>
+        /// 状态
+        /// </summary>
+        public int InfoState_State { get; set; }
+        /// <summary>
+        /// 等级
+        /// </summary>
+        public int LeavelCost_Level { get; set; }
+        /// <summary>
+        /// 多少元/天
+        /// </summary>
+        public double DayCost_Money { get; set; }
     }
 }

@@ -1,0 +1,179 @@
+﻿@model List<YJMVC.Models.HomeInfoModel>
+
+@{
+    ViewBag.Title = "出售";
+    Layout = "~/Views/Shared/_QianTaiView.cshtml";
+}
+
+<div class="banner-section">
+    <div class="container">
+        <h2>出售</h2>
+    </div>
+</div>
+<!---banner--->
+<div class="content">
+    <div class="properties-section">
+        <div class="container">
+            <div class="properties-grids">
+                <div class="col-md-9 forsales-left" style="float:left">
+                    <div class="forsale">
+                        <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
+                            <ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
+                                <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="/QianTai/Images/menu1.png"></a></li>
+                                <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="/QianTai/images/menu.png"></a></li>
+                            </ul>
+                            <div id="myTabContent" class="tab-content">
+                                <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
+                                    @foreach (var item in Model)
+                                    {
+                                        <div class="forsale-grids">
+                                            <h4><a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">@item.HomeInfo_Xq_Name</a></h4>
+                                            <div class="forsale1">
+                                                <div class="forsale-left">
+                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">
+                                                        <img src="~/Images/@item.HomeInfo_PhotoPath" style="width:239px;height:180px" class="img-responsive" alt="/">
+                                                    </a>
+                                                </div>
+                                                <div class="forsale-right">
+                                                    <h5><label>￥</label> @item.HomeInfo_Price - <span>@item.HomeInfo_Type</span></h5>
+                                                    <p>@item.HomeInfo_IntroDuce</p>
+                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id" class="button4">知道更多</a>
+                                                </div>
+                                                <div class="clearfix"></div>
+                                                <ul>
+                                                    <li><span> @item.HomeInfo_PosiTion </span></li>
+                                                    <li><span>@item.HomeInfo_HouseType  </span></li>
+                                                </ul>
+                                            </div>
+                                        </div>
+                                    }
+                                </div>
+                                <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
+                                    <div class="forsale-grids1">
+                                        @foreach (var item1 in Model)
+                                        {
+                                            <div class="col-md-4 forsale-grid1">
+                                                <img src="~/Images/@item1.HomeInfo_PhotoPath" style="width:280px;height:190px" class="img-responsive" alt="/">
+                                                <div class="sale-info">
+                                                    <span>
+                                                        @if (item1.HomeInfo_InfoType == 1)
+                                                        {
+                                                            @:出售
+                                                        }
+                                                        else if (item1.HomeInfo_InfoType == 2)
+                                                        {
+                                                            @:出租
+                                                        }
+                                                        else
+                                                        {
+                                                            @:楼盘
+                                                        }
+                                                    </span>
+                                                </div>
+                                                <h5>@item1.HomeInfo_PosiTion,@item1.HomeInfo_Xq_Name</h5>
+                                                <p>@item1.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item1.HomeInfo_Id">了解更多</a></p>
+                                                <h6>￥@item1.HomeInfo_Price</h6>
+                                            </div>
+                                        }
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <form action="/HomeInfo/GetChuShowHomeInfos">
+                    <div class="col-md-3 properties-right" style="float:left">
+                        <div class="properties-top">
+                            <h4>找到你所需要的房屋</h4>
+                            <div class="yourplace">
+                                <h5>所在省市</h5>
+                                <select name="position" class="sel2">
+                                    <option value="">请选择</option>
+                                    <option value="上海">上海</option>
+                                </select>
+                            </div>
+                            <div class="yourplace">
+                                <h5>所在地点</h5>
+                                <select name="city" class="sel2">
+                                    <option value="">请选择</option>
+                                    <option value="浦东新区">浦东新区</option>
+                                    <option value="杨浦区">杨浦区</option>
+                                    <option value="嘉定区">嘉定区</option>
+                                    <option value="徐汇区">徐汇区</option>
+                                    <option value="闵行区">闵行区</option>
+                                    <option value="普陀区">普陀区</option>
+                                    <option value="静安区">静安区</option>
+                                    <option value="黄浦区">黄浦区</option>
+                                    <option value="奉贤区">奉贤区</option>
+                                </select>
+                            </div>
+                            <div class="yourplace">
+                                <h5>房屋类型</h5>
+                                <select name="type" class="sel2">
+                                    <option value="">请选择</option>
+                                    <option value="住宅">住宅</option>
+                                    <option value="别墅">别墅</option>
+                                    <option value="商业">商业</option>
+                                    <option value="写字楼">写字楼</option>
+                                </select>
+                            </div>
+                            <div class="yourplace">
+                                <h5>房型</h5>
+                                <select name="houseType" class="sel2">
+                                    <option value="">请选择</option>
+                                    <option value="一室">一室</option>
+                                    <option value="二室">二室</option>
+                                    <option value="三室">三室</option>
+                                    <option value="四室">四室</option>
+                                    <option value="五室及以上">五室及以上</option>
+                                </select>
+                            </div>
+                            <div class="yourplace-grids">
+                                <div class="col-md-6 yourplace-grid">
+                                    <h5>售价</h5>
+                                    <select name="price" class="sel3">
+                                        <option value="0-999999999">请选择</option>
+                                        <option value="200以下">200万以下</option>
+                                        <option value="200-300">200-300万</option>
+                                        <option value="300-400">300-400万</option>
+                                        <option value="400-500">400-500万</option>
+                                        <option value="500以上">500万及以上</option>
+                                    </select>
+                                </div>
+                                <div class="col-md-6 yourplace-grid">
+                                    <h5>面积</h5>
+                                    <select name="area" class="sel3">
+                                        <option value="0-999999999">请选择</option>
+                                        <option value="50以下">50平以下</option>
+                                        <option value="50-60">50-60平米</option>
+                                        <option value="60-80">60-80平米</option>
+                                        <option value="80-90">80-90平米</option>
+                                        <option value="110以上">110平米以上</option>
+                                    </select>
+                                </div>
+                                <div class="clearfix"></div>
+                            </div>
+                            <div class="search1">
+                                <input type="submit" value="查询">
+                            </div>
+                        </div>
+                </form>
+                <div class="feature">
+                    <h4>特色房屋</h4>
+                    @foreach (var item in Model)
+                    {
+                        <div class="feature-top top2">
+                            <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
+                            <h5>@item.HomeInfo_PosiTion</h5>
+                            <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
+                        </div>
+                    }
+                </div>
+            </div>
+            <div class="clearfix"></div>
+        </div>
+    </div>
+</div>
+</div>
+

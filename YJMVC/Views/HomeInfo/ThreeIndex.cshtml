@@ -1,0 +1,27 @@
+﻿@model List<YJMVC.Models.HomeInfoModel>
+@{
+    ViewBag.Title = "三列显示";
+    Layout = "~/Views/Shared/_QianTaiView.cshtml";
+}
+<div class="banner-section">
+    <div class="container">
+        <h2>图库</h2>
+    </div>
+</div>
+<!---banner--->
+<div class="content">
+    <div class="gallery-section">
+        <div class="container">
+            <div class="gallery-grids">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4 gallery-grid1" style="margin-top:15px">
+                        <a href="~/Images/@item.HomeInfo_PhotoPath" class="swipebox"><span class="rollover1"> </span></a>
+                        <img src="~/Images/@item.HomeInfo_PhotoPath" style="width:450px;height:264px" class="img-responsive" alt="/">
+                    </div>
+                }
+            </div>
+        </div>
+    </div>
+</div>
+
