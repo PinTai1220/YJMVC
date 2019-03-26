@@ -17,48 +17,25 @@ namespace YJMVC.Controllers
         /// </summary>
         /// <returns></returns>
         // GET: Developers_Apply_For
-        public ActionResult Index()
-        {
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
-            //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 3).ToList();
-            return View(homes);
-        }
-
-        public string ShowGuangGao()
-        {
-            string json = HttpClientHelper.SendRequest("http://localhost:17547/api/HomeInfo/Show", "get");
-            List<HomeInfoModel> homes = JsonConvert.DeserializeObject<List<HomeInfoModel>>(json);
-            homes = homes.Where(c => c.HomeInfo_InfoType == 2).ToList();
-            json = JsonConvert.SerializeObject(homes);
-            return json;
-        }
-
-        [HttpGet]
-        public ActionResult AddDev()
-        {
-
-            return View();
-        }
-
         [HttpPost]
-        public ActionResult AddDev(Developers_Apply_ForModel developers, HttpPostedFileBase fileBase)
+        public ActionResult AddDev(HttpPostedFileBase HomeInfo_PhotoPath, HomeInfoModel home)
         {
-            //上传图片
-            string jue = Server.MapPath("/Images/");
-            fileBase.SaveAs(jue + fileBase.FileName);
-            developers.Developers_PhotoPath = fileBase.FileName;
-            string json = JsonConvert.SerializeObject(developers);
+            string path = Path.Combine(AppDomain.CurrentDomain.BaseDirectory + "Images\\" + HomeInfo_PhotoPath.FileName);
+            HomeInfo_PhotoPath.SaveAs(path);
+            home.HomeInfo_InfoType = 3;
+            home.HomeInfo_CreateTime = DateTime.Now.ToShortDateString().ToString();
+            home.HomeInfo_PhotoPath = HomeInfo_PhotoPath.FileName;
+            home.HomeInfo_UserId = Convert.ToInt32(Session["Account_Id"]);
+            string json = JsonConvert.SerializeObject(home);
             string jsonStr = HttpClientHelper.SendRequest("api/HomeInfo/Create", "post", json);
             int result = JsonConvert.DeserializeObject<int>(jsonStr);
             if (result > 0)
             {
-                return Content("<script>location.href='/Developers_Apply_For/Index/'</script>");
+                return Content("<script>location.href='/Developers_Apply_For/QianTaiIndex/'</script>");
             }
             else
             {
-                return Content("<script>alert('添加失败了!')</script>");
+                return Content("<script>alert('发布失败了!')</script>");
             }
         }
         public ActionResult QianTaiIndex()

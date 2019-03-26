@@ -27,7 +27,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <link href="~/Scripts/JQuery/css/ImgCropping.css" rel="stylesheet" />
     <script src="~/Scripts/JQuery/js/cropper.min.js"></script>
     <script src="~/QianTai/js/owl.carousel.js"></script>
-   
+
     <script>
         $(function () {
             $("#slider").responsiveSlides({
@@ -83,11 +83,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             text-indent: .15em;
             line-height: 1;
         }
+
         input[type="radio"]:checked + label::before {
             background-color: #2DA9E1;
             background-clip: content-box;
             padding: .2em;
         }
+
         input[type="radio"] {
             position: absolute;
             clip: rect(0, 0, 0, 0);
@@ -121,6 +123,31 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 color: #004974;
                 text-decoration: none;
             }
+
+          .pic-select {
+            position: relative;
+            width: 150px;
+            height: 50px;
+            font-size: 14px;
+            background-color: cornflowerblue;
+            border: 1px solid #DBDBDB;
+            border-radius: 10px;
+            font-size: 20px;
+            text-align: center;
+            line-height: 50px;
+            z-index: 10;
+            margin-bottom: 10px;
+        }
+
+            .pic-select input {
+            width: 150px;
+            height: 50px;
+            position: absolute;
+            top: 0px;
+            left: 0px;
+            opacity: 0;
+            z-index: 1000;
+        }
     </style>
 </head>
 <body>
@@ -165,12 +192,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     <ul class="nav navbar-nav">
                         <li><a href="/Main/MainIndex">家 <span class="sr-only">(current)</span></a></li>
                         <li class="dropdown">
-                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">房屋信息<span class="caret"></span></a>
+                            <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">房源信息<span class="caret"></span></a>
                             <ul class="dropdown-menu">
                                 <li><a href="/HomeInfo/ChuZuIndex">出租的房屋</a></li>
                                 <li><a href="/HomeInfo/ChuShouIndex">出售的房屋</a></li>
                                 <li><a href="#" data-toggle="modal" data-target="#IMai">我要卖房</a></li>
                                 <li><a href="#" data-toggle="modal" data-target="#IZu">我要出租</a></li>
+                                <li><a href="#" data-toggle="modal" data-target="#IGuang">发布广告</a></li>
                             </ul>
                         </li>
                         <li class="dropdown ">
@@ -192,7 +220,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                 <li><a href="/HomeInfo/FourIndex">4列展示</a></li>
                             </ul>
                         </li>
-                        <li><a href="/Developers_Apply_For/QianTaiIndex">广告推广</a></li>
+                        <li><a href="/Developers_Apply_For/QianTaiIndex">房产广告</a></li>
                         <!--<li><a href="codes.html">Codes</a></li>-->
                         <li><a href="/Main/LianXiIndex">联系我们</a></li>
                     </ul>
@@ -486,6 +514,49 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
+    <div class="modal fade" id="IGuang" tabindex="-1" role="dialog">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content modal-info">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                </div>
+                <div class="modal-body real-spa">
+                    <div class="login-grids">
+                        <div class="login">
+
+                            <div class="login-right">
+                                @using (Html.BeginForm("AddDev", "Developers_Apply_For", null, FormMethod.Post, new { enctype = "multipart/form-data" }))
+                                {
+                                    <h3>广告发布</h3>
+                                    <div>
+                                        <input type="file" id="Upload" name="HomeInfo_PhotoPath" value="上传图片" />
+                                    </div>
+                                    <input type="text" name="HomeInfo_PosiTion" value="具体地址" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体地址';}" required="">
+                                    <input type="text" name="HomeInfo_Xq_Name" value="小区名称" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '小区名称';}" required="">
+                                    <div class="female" style="margin-top:20px">
+                                        <label>推荐挂单等级</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="fml" class="rdoLev" name="LeavelCost_Level" value="低级" />
+                                        <label for="fml">低级</label>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        <input type="radio" id="fmal" class="rdoLev" name="LeavelCost_Level" value="高级" />
+                                        <label for="fmal">高级</label>
+                                    </div>
+                                    <input type="text" name="DayCost_Money" value="挂单天数" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '具体的挂单天数';}" required="">
+                                    <input type="text" name="HomeInfo_Contact" value="联系人" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系人';}" required="">
+                                    <input type="text" name="HomeInfo_Phone" value="联系方式" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = '联系方式';}" required="">
+                                    <textarea style="margin-top:20px" name="HomeInfo_IntroDuce" rows="6" cols="58" onpropertychange="if(this.scrollHeight>58) this.style.posHeight=this.scrollHeight+5"></textarea>
+                                    <input type="submit" id="SaveGuang" value="发布" onclick="CheckGuangId()">
+                                }
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
 
@@ -500,7 +571,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             url: "/Users/Login",
             type: "post",
             data: { email: email, password: password },
-            async:false,
+            async: false,
             success: function (data) {
                 if (data > 0) {
                     location.reload();
@@ -639,7 +710,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             data: { file: file },
             async: true,
             success: function (data) {
-               
+
             }
         })
     }
@@ -682,5 +753,59 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             $("#SaveZu").removeAttr("disabled");
         }
     }
+    function CheckGuangId() {
+        var Id = $("#UserId").val()
+        if (Id == null) {
+            alert("请先登录");
+            $("#SaveZu").attr({ "disabled": "disabled" });
+        }
+        else {
+            $("#SaveZu").removeAttr("disabled");
+        }
+    }
 
+</script>
+<script type="text/javascript">
+     //下面用于多图片上传预览功能
+     function Previews(avalue) {
+          var docObj = document.getElementById("pic-choose");
+          var dd = document.getElementById("pic-show");
+          docObj.style.border = "1px solid red";
+          dd.innerHTML = "";
+          var fileList = docObj.files;
+          for (var i = 0; i < fileList.length; i++) {
+              dd.innerHTML += "<div style='float:left' > <img id='img" + i + "'  /> </div>";
+              var imgObjPreview = document.getElementById("img" + i);
+              if (docObj.files && docObj.files[i]) {
+                   //火狐下，直接设img属性
+                   imgObjPreview.style.display = 'block';
+                   imgObjPreview.style.width = '100px';
+                   imgObjPreview.style.height = '100px';
+                   //imgObjPreview.src = docObj.files[0].getAsDataURL();
+                   //火狐7以上版本不能用上面的getAsDataURL()方式获取，需要一下方式
+                   imgObjPreview.src = window.URL.createObjectURL(docObj.files[i]);
+              }
+              else {
+                //IE下，使用滤镜
+                   docObj.select();
+                   var imgSrc = document.selection.createRange().text;
+                   alert(imgSrc)
+                   var localImagId = document.getElementById("img" + i);
+                   //必须设置初始大小
+                   localImagId.style.width = "100px";
+                   localImagId.style.height = "100px";
+                   //图片异常的捕捉，防止用户修改后缀来伪造图片
+                   try {
+                    localImagId.style.filter = "progid:DXImageTransform.Microsoft.AlphaImageLoader(sizingMethod=scale)";
+                        localImagId.filters.item("DXImageTransform.Microsoft.AlphaImageLoader").src = imgSrc;
+                   } catch (e) {
+                        alert("您上传的图片格式不正确，请重新选择!");
+                         return false;
+                   }
+                    imgObjPreview.style.display = 'none';
+                    document.selection.empty();
+               }
+           }
+            return true;
+      }
 </script>

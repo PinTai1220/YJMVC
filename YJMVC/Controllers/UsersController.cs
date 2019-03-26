@@ -85,7 +85,7 @@ namespace YJMVC.Controllers
             // 判断该图片是否存在
 
             headImg.Save(imgPath, ImageFormat.Png);
-            users.User_PhotoUrl = imgPath;
+            users.User_PhotoUrl = imgPath.Substring(path.Length + 1, 15);
 
             // 调用Api 注册方法
             // 将密码进行MD5加密

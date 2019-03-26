@@ -19,9 +19,9 @@
                     {
                             <div class="blog">
                                 <h3><a href="single.html">@item.HomeInfo_Xq_Name</a></h3>
-                                <a href="/HomeInfo/XiangQingIndex"><img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="" /></a>
+                                <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="" /></a>
                                 <p>@item.HomeInfo_IntroDuce</p>
-                                <a href="/HomeInfo/XiangQingIndex" class="button5 hvr-shutter-out-horizontal">知道更多</a>
+                                <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id" class="button5 hvr-shutter-out-horizontal">知道更多</a>
                             </div>
                     }
                 </div>
@@ -30,11 +30,15 @@
                         <h4>特色房屋</h4>
                         @foreach (var item in Model)
                         {
-                            <div class="feature-top top2">
-                                <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
-                                <h5>@item.HomeInfo_PosiTion</h5>
-                                <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
-                            </div>
+                            if (item.HomeInfo_InfoType == 3)
+                            {
+                                <div class="feature-top top2">
+                                    <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
+                                    <h5>@item.HomeInfo_PosiTion</h5>
+                                    <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
+                                </div>
+                            }
+
                         }
                     </div>
                 </div>

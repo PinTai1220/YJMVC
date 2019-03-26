@@ -82,7 +82,7 @@
                         <div class="properties-top">
                             <h4>找到你所需要的房屋</h4>
                             <div class="yourplace">
-                                <h5>所有位置</h5>
+                                <h5>所在省市</h5>
                                 <select class="sel2" name="position">
                                     <option value="">请选择</option>
                                     <option value="上海">上海</option>
@@ -161,11 +161,12 @@
                     {
                         if (item.HomeInfo_InfoType == 2)
                         {
-                            <div class="feature-top top2">
-                                <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
-                                <h5>@item.HomeInfo_PosiTion</h5>
-                                <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
-                            </div>
+                    <div class="feature-top top2">
+                        <input id="Hidden1" value="@item.HomeInfo_Id" type="hidden" />
+                        <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
+                        <h5>@item.HomeInfo_PosiTion</h5>
+                        <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
+                    </div>
                         }
 
                     }
