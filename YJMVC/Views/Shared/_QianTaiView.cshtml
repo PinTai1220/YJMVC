@@ -48,7 +48,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     <script src="~/QianTai/js/jquery.flexslider.js"></script>
     <link rel="stylesheet" href="~/QianTai/css/flexslider.css" type="text/css" media="screen" />
     <script>
-        // Can also be used with $(document).ready()
         $(window).load(function () {
             $('.flexslider').flexslider({
                 animation: "slide",
@@ -174,7 +173,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                 <div class="clearfix"></div>
             </div>
             <nav class="navbar navbar-default">
-                <!---Brand and toggle get grouped for better mobile display--->
                 <div class="navbar-header">
                     <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
                         <span class="sr-only">Toggle navigation</span>
@@ -187,7 +185,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                     </div>
                 </div>
 
-                <!-- Collect the nav links, forms, and other content for toggling -->
                 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                     <ul class="nav navbar-nav">
                         <li><a href="/Main/MainIndex">家 <span class="sr-only">(current)</span></a></li>
@@ -221,7 +218,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                             </ul>
                         </li>
                         <li><a href="/Developers_Apply_For/QianTaiIndex">房产广告</a></li>
-                        <!--<li><a href="codes.html">Codes</a></li>-->
                         <li><a href="/Main/LianXiIndex">联系我们</a></li>
                     </ul>
 
@@ -357,19 +353,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
                                         </div>
                                     </div>
                                     <!--图片裁剪框 end-->
-
-
-
-
-
-
-
-
                                     <input id="Phone" type="text" name="User_Phone" placeholder="请输入手机号。。。" onblur="CheckPhone()" required="" />
                                     <input id="Pwd" type="password" name="User_Pwd" placeholder="请输入密码。。。" required="" />
                                     <input id="CfmPwd" type="password" placeholder="请确认密码。。。" required="" />
-
-
                                     <input id="regSub" type="submit" value="现在注册">
                                 </form>
                             </div>
@@ -381,6 +367,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
+    @*卖房*@
     <div class="modal fade" id="IMai" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-info">
@@ -448,6 +435,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
+    @*出租*@
     <div class="modal fade" id="IZu" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-info">
@@ -514,6 +502,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </div>
         </div>
     </div>
+    @*发布广告*@
     <div class="modal fade" id="IGuang" tabindex="-1" role="dialog">
         <div class="modal-dialog" role="document">
             <div class="modal-content modal-info">
