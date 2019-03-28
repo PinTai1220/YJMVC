@@ -72,7 +72,7 @@ namespace YJMVC.Controllers
 
 
             #region 面积计算
-            int minArea, maxArea;
+            int minArea=0, maxArea=0;
             if (area.Equals("50以下"))
             {
                 minArea = 0;
@@ -92,7 +92,7 @@ namespace YJMVC.Controllers
 
 
             List<HomeInfoModel> homes = GetHomeInfos();
-            homes = homes.Where(c => c.HomeInfo_InfoType == 1 && c.HomeInfo_PosiTion.Contains(position) && c.HomeInfo_Price >= minPrice && c.HomeInfo_Price <= maxPrice && c.HomeInfo_HouseType.Contains(houseType) && c.HomeInfo_Type.Contains(type) && c.HomeInfo_Area >= minArea && c.HomeInfo_Area <= maxArea).ToList();
+            homes = homes.Where(c => c.HomeInfo_InfoType == 1 && c.HomeInfo_PosiTion.Contains(position+city) && c.HomeInfo_Price >= minPrice && c.HomeInfo_Price <= maxPrice && c.HomeInfo_HouseType.Contains(houseType) && c.HomeInfo_Type.Contains(type) && c.HomeInfo_Area >= minArea && c.HomeInfo_Area <= maxArea).ToList();
 
             return View("ChuShouIndex", homes);
         }
