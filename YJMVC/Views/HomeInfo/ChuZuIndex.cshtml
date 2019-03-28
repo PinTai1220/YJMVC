@@ -24,52 +24,58 @@
                                 <div role="tabpanel" class="tab-pane fade in active" id="home" aria-labelledby="home-tab">
                                     @foreach (var item in Model)
                                     {
-                                        <div class="forsale-grids">
-                                            <h4><a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">@item.HomeInfo_Xq_Name</a></h4>
-                                            <div class="forsale1">
-                                                <div class="forsale-left">
-                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="~/Images/@item.HomeInfo_PhotoPath" style="width:239px;height:180px;" class="img-responsive" alt="/"></a>
+                                        if (item.HomeInfo_InfoType == 2)
+                                        {
+                                            <div class="forsale-grids">
+                                                <h4><a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">@item.HomeInfo_Xq_Name</a></h4>
+                                                <div class="forsale1">
+                                                    <div class="forsale-left">
+                                                        <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="~/Images/@item.HomeInfo_PhotoPath" style="width:239px;height:180px;" class="img-responsive" alt="/"></a>
+                                                    </div>
+                                                    <div class="forsale-right">
+                                                        <h5><label>￥</label> @item.HomeInfo_AvgPrice /每月- <span>@item.HomeInfo_Type</span></h5>
+                                                        <p>@item.HomeInfo_IntroDuce</p>
+                                                        <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id" class="button4">知道更多</a>
+                                                    </div>
+                                                    <div class="clearfix"></div>
+                                                    <ul>
+                                                        <li><span> @item.HomeInfo_PosiTion </span></li>
+                                                        <li><span>@item.HomeInfo_HouseType  </span></li>
+                                                    </ul>
                                                 </div>
-                                                <div class="forsale-right">
-                                                    <h5><label>￥</label> @item.HomeInfo_AvgPrice /每月- <span>@item.HomeInfo_Type</span></h5>
-                                                    <p>@item.HomeInfo_IntroDuce</p>
-                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id" class="button4">知道更多</a>
-                                                </div>
-                                                <div class="clearfix"></div>
-                                                <ul>
-                                                    <li><span> @item.HomeInfo_PosiTion </span></li>
-                                                    <li><span>@item.HomeInfo_HouseType  </span></li>
-                                                </ul>
                                             </div>
-                                        </div>
+                                        }
                                     }
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
                                     <div class="forsale-grids1">
                                         @foreach (var item in Model)
                                         {
-                                            <div class="col-md-4 forsale-grid1">
-                                                <img src="~/Images/@item.HomeInfo_PhotoPath" style="width:280px;height:190px;" class="img-responsive" alt="" />
-                                                <div class="sale-info">
-                                                    <span>
-                                                        @if (item.HomeInfo_InfoType == 1)
-                                                        {
-                                                            @:出售
-                                                        }
-                                                        else if (item.HomeInfo_InfoType == 2)
-                                                        {
-                                                            @:出租
-                                                        }
-                                                        else
-                                                        {
-                                                            @:楼盘
-                                                        }
-                                                    </span>
+                                            if (item.HomeInfo_InfoType == 2)
+                                            {
+                                                <div class="col-md-4 forsale-grid1">
+                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="~/Images/@item.HomeInfo_PhotoPath" style="width:280px;height:190px;" class="img-responsive" alt="" /></a>
+                                                    <div class="sale-info">
+                                                        <span>
+                                                            @if (item.HomeInfo_InfoType == 1)
+                                                            {
+                                                                @:出售
+                                                            }
+                                                            else if (item.HomeInfo_InfoType == 2)
+                                                            {
+                                                                @:出租
+                                                            }
+                                                            else
+                                                            {
+                                                                @:楼盘
+                                                            }
+                                                        </span>
+                                                    </div>
+                                                    <h5>@item.HomeInfo_PosiTion,@item.HomeInfo_Xq_Name</h5>
+                                                    <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">了解更多</a></p>
+                                                    <h6>￥@item.HomeInfo_AvgPrice</h6>
                                                 </div>
-                                                <h5>@item.HomeInfo_PosiTion,@item.HomeInfo_Xq_Name</h5>
-                                                <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">了解更多</a></p>
-                                                <h6>￥@item.HomeInfo_Price</h6>
-                                            </div>
+                                            }
                                         }
                                     </div>
                                 </div>
@@ -156,14 +162,14 @@
                         </div>
                 </form>
                 <div class="feature">
-                    <h4>特色房屋</h4>
+                    <h4>楼盘广告</h4>
                     @foreach (var item in Model)
                     {
-                        if (item.HomeInfo_InfoType == 2)
+                        if (item.HomeInfo_InfoType == 3)
                         {
                     <div class="feature-top top2">
                         <input id="Hidden1" value="@item.HomeInfo_Id" type="hidden" />
-                        <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
+                        <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/"></a>
                         <h5>@item.HomeInfo_PosiTion</h5>
                         <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
                     </div>

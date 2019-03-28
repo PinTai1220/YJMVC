@@ -21,7 +21,7 @@ namespace YJMVC.Controllers
         {
             List<HomeInfoModel> homes = GetHomeInfos();
             //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 2).ToList();
+            homes = homes.ToList();
             return View(homes);
         } 
 
@@ -40,7 +40,7 @@ namespace YJMVC.Controllers
         {
             List<HomeInfoModel> homes = GetHomeInfos();
             //根据房屋信息类型判断是出售还是出租
-            homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
+            homes = homes.ToList();
             return View(homes);
         }
         /// <summary>
