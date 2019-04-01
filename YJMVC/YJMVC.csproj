@@ -1321,7 +1321,6 @@
     <Content Include="Scripts\vendor\jquery.cookie\cookie.jquery.json" />
     <Content Include="Views\Shared\_QianTaiView.cshtml" />
     <Content Include="Views\Main\MainIndex.cshtml" />
-    <Content Include="Views\Main\AboutIndex.cshtml" />
     <Content Include="Views\Main\JieDaIndex.cshtml" />
     <Content Include="Views\Main\TiaoIndex.cshtml" />
     <Content Include="Views\Main\YinSiIndex.cshtml" />

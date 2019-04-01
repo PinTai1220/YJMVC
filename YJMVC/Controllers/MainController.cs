@@ -25,17 +25,12 @@ namespace YJMVC.Controllers
             homes = homes.Where(C => C.HomeInfo_InfoType == 1).ToList();
             return View(homes);
         }
-        //关于我们
-        public ActionResult AboutIndex()
-        {
-            return View();
-        }
         //经常解答的问题
         public ActionResult JieDaIndex()
         {
             return View();
         }
-        //条款
+        //关于我们
         public ActionResult TiaoIndex()
         {
             return View();
