@@ -100,7 +100,7 @@ namespace YJMVC.Controllers
 
             if (result > 0)
             {
-                return Content("<script>alert('注册成功！');location.href='/Main/MainIndex'</script>");
+                return Content("<script>location.href='/Main/MainIndex'</script>");
             }
             else
             {

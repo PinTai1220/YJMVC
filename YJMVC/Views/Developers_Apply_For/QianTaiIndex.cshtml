@@ -1,6 +1,6 @@
 ﻿@model List<YJMVC.Models.HomeInfoModel>
 @{
-    ViewBag.Title = "QianTaiIndex";
+    ViewBag.Title = "房产广告";
     Layout = "~/Views/Shared/_QianTaiView.cshtml";
 }
 
@@ -34,7 +34,7 @@
                             {
                                 <div class="feature-top top2">
                                     <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
-                                    <h5>@item.HomeInfo_PosiTion</h5>
+                                    <h5>@item.HomeInfo_Xq_Name</h5>
                                     <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
                                 </div>
                             }
