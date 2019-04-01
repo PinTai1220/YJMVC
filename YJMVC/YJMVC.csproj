@@ -154,6 +154,7 @@
     <Compile Include="Controllers\InfoStateController.cs" />
     <Compile Include="Controllers\LevelCostController.cs" />
     <Compile Include="Controllers\MainController.cs" />
+    <Compile Include="Controllers\MapController.cs" />
     <Compile Include="Controllers\MoneyRecordController.cs" />
     <Compile Include="Controllers\UsersController.cs" />
     <Compile Include="Global.asax.cs">
@@ -891,6 +892,7 @@
     <Content Include="Scripts\layer-v3.0.3\layer\skin\default\loading-2.gif" />
     <Content Include="Scripts\layer-v3.0.3\更新日志.txt" />
     <Content Include="Scripts\modernizr-2.8.3.js" />
+    <Content Include="Scripts\MT.js" />
     <Content Include="Scripts\ueditor\dialogs\anchor\anchor.html" />
     <Content Include="Scripts\ueditor\dialogs\attachment\attachment.css" />
     <Content Include="Scripts\ueditor\dialogs\attachment\attachment.html" />
@@ -1359,6 +1361,7 @@
     <Folder Include="Views\DayCost\" />
     <Folder Include="Views\InfoState\" />
     <Folder Include="Views\LevelCost\" />
+    <Folder Include="Views\Map\" />
     <Folder Include="Views\MoneyRecord\" />
   </ItemGroup>
   <ItemGroup>

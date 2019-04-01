@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_QianTaiView.cshtml";
     List<HomeInfoModel> homes = ViewBag.homes;
 }
-
+<script src="~/layui/layui.all.js"></script>
+<link href="~/layui/css/layui.css" rel="stylesheet" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wq7e1ztp1VSc8o53ExMr3p4EbNDCL08z"></script>
 <div class="banner-section">
     <div class="container">
         <h2>房屋详细信息</h2>
@@ -25,7 +27,7 @@
                             <div>
                                 <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
                                 <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
-                                <div style="float:left">
+                                <div style="float:left;width:250px;">
                                     <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
                                     <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
                                     <p>房屋地点：<span>@Model.HomeInfo_PosiTion</span></p>
@@ -37,7 +39,7 @@
                                     <p>价格：<span>@Model.HomeInfo_Price</span></p>
                                     <p>介绍：@Model.HomeInfo_IntroDuce</p>
                                 </div>
-                                <div style="margin-left:50px;margin-top:20px;float:left"></div>
+                                <div style="margin-left:50px;margin-top:20px;float:left;width:450px;height:450px;border:1px solid #808080" id="Bmap" onloadeddata="londmap(@Model.HomeInfo_LongiTude,@Model.HomeInfo_LongiTude)"></div>
                             </div>
                         </div>
                     }
@@ -48,7 +50,7 @@
                             <div>
                                 <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
                                 <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
-                                <div style="float:left">
+                                <div style="float:left;width:250px;">
                                     <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
                                     <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
                                     <p>房屋地点：<span>@Model.HomeInfo_PosiTion</span></p>
@@ -60,7 +62,7 @@
                                     <p>价格：<span>@Model.HomeInfo_AvgPrice</span>/月</p>
                                     <p>介绍：@Model.HomeInfo_IntroDuce</p>
                                 </div>
-                                <div style="float:left;margin-left:50px;margin-top:20px">剪掉撒京东我阿吉豆我氨基酸do我阿精雕机搜达是</div>
+                                <div style="float:left;margin-left:50px;margin-top:20px;width:450px;height:450px;border:1px solid #808080" id="Bmap"></div>
                             </div>
                         </div>
                     }
@@ -71,7 +73,7 @@
                             <div>
                                 <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
                                 <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
-                                <div style="float:left">
+                                <div style="float:left;width:250px;">
                                     <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
                                     <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
                                     <p>小区名称：<span>@Model.HomeInfo_Xq_Name</span></p>
@@ -79,7 +81,7 @@
                                     <p>房屋信息：楼盘</p>
                                     <p>介绍：@Model.HomeInfo_IntroDuce</p>
                                 </div>
-                                <div style="margin-left:50px;margin-top:20px;float:left"></div>
+                                <div style="margin-left:50px;margin-top:20px;float:left;width:540px;height:500px;" id="Bmap"></div>
                             </div>
                         </div>
                     }
@@ -104,4 +106,6 @@
         </div>
     </div>
 </div>
-
+<script>
+    londmap(@Model.HomeInfo_LongiTude,@Model.HomeInfo_LatiTude)
+</script>
