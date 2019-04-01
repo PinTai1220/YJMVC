@@ -19,49 +19,72 @@
         <div class="container">
             <div class="blog-grids">
                 <div class="col-md-9 blog-grid">
-                    <div class="blog">
-                        @if (Model.HomeInfo_InfoType == 1)
-                        {
+
+                    @if (Model.HomeInfo_InfoType == 1)
+                    {
+                        <div class="blog">
                             <h3>房屋的具体信息</h3>
-                            <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
-                            <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
-                            <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
-                            <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
-                            <p>房屋地点：<span>@Model.HomeInfo_PosiTion</span>@Model.HomeInfo_Xq_Name</p>
-                            <p>房屋类型：<span>@Model.HomeInfo_Type</span></p>
-                            <p>房型：<span>@Model.HomeInfo_HouseType</span></p>
-                            <p>房屋面积：<span>@Model.HomeInfo_Area</span></p>
-                            @:房屋信息：出售
-                            <p>价格：<span>@Model.HomeInfo_Price</span></p>
-                            <p>介绍：@Model.HomeInfo_IntroDuce</p>
-                        }
-                        else if (Model.HomeInfo_InfoType == 2)
-                        {
+                            <div>
+                                <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
+                                <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
+                                <div style="float:left">
+                                    <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
+                                    <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
+                                    <p>房屋地点：<span>@Model.HomeInfo_PosiTion</span></p>
+                                    <p>小区名称：<span>@Model.HomeInfo_Xq_Name</span></p>
+                                    <p>房屋类型：<span>@Model.HomeInfo_Type</span></p>
+                                    <p>房型：<span>@Model.HomeInfo_HouseType</span></p>
+                                    <p>房屋面积：<span>@Model.HomeInfo_Area</span></p>
+                                    <p>房屋信息：出售</p>
+                                    <p>价格：<span>@Model.HomeInfo_Price</span></p>
+                                    <p>介绍：@Model.HomeInfo_IntroDuce</p>
+                                </div>
+                                <div style="margin-left:50px;margin-top:20px;float:left"></div>
+                            </div>
+                        </div>
+                    }
+                    else if (Model.HomeInfo_InfoType == 2)
+                    {
+                        <div class="blog">
                             <h3>房屋的具体信息</h3>
-                            <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
-                            <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
-                            <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
-                            <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
-                            <p>房屋地点：<span>@Model.HomeInfo_PosiTion</span>@Model.HomeInfo_Xq_Name</p>
-                            <p>房屋类型：<span>@Model.HomeInfo_Type</span></p>
-                            <p>房型：<span>@Model.HomeInfo_HouseType</span></p>
-                            <p>房屋面积：<span>@Model.HomeInfo_Area</span></p>
-                            @:房屋信息：出租
-                            <p>价格：<span>@Model.HomeInfo_AvgPrice</span>/月</p>
-                            <p>介绍：@Model.HomeInfo_IntroDuce</p>
-                        }
-                        else if (Model.HomeInfo_InfoType == 3)
-                        {
+                            <div>
+                                <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
+                                <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
+                                <div style="float:left">
+                                    <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
+                                    <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
+                                    <p>房屋地点：<span>@Model.HomeInfo_PosiTion</span></p>
+                                    <p>小区名称：<span>@Model.HomeInfo_Xq_Name</span></p>
+                                    <p>房屋类型：<span>@Model.HomeInfo_Type</span></p>
+                                    <p>房型：<span>@Model.HomeInfo_HouseType</span></p>
+                                    <p>房屋面积：<span>@Model.HomeInfo_Area</span></p>
+                                    <p>房屋信息：出租</p>
+                                    <p>价格：<span>@Model.HomeInfo_AvgPrice</span>/月</p>
+                                    <p>介绍：@Model.HomeInfo_IntroDuce</p>
+                                </div>
+                                <div style="float:left;margin-left:50px;margin-top:20px">剪掉撒京东我阿吉豆我氨基酸do我阿精雕机搜达是</div>
+                            </div>
+                        </div>
+                    }
+                    else if (Model.HomeInfo_InfoType == 3)
+                    {
+                        <div class="blog">
                             <h3>房屋的具体信息</h3>
-                            <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
-                            <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
-                            <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
-                            <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
-                            <p>房屋地点：<span>@Model.HomeInfo_PosiTion</span>@Model.HomeInfo_Xq_Name</p>
-                            @:房屋信息：楼盘
-                            <p>介绍：@Model.HomeInfo_IntroDuce</p>
-                        }
-                    </div>
+                            <div>
+                                <input id="Hidden1" value="@Model.HomeInfo_Id" type="hidden" />
+                                <img src="/Images/@Model.HomeInfo_PhotoPath" alt="Alternate Text" />
+                                <div style="float:left">
+                                    <p>联系人：<span>@Model.HomeInfo_Contact</span></p>
+                                    <p>联系方式：<span>@Model.HomeInfo_Phone</span></p>
+                                    <p>小区名称：<span>@Model.HomeInfo_Xq_Name</span></p>
+                                    <p>房屋地点：<span>@Model.HomeInfo_PosiTion</span></p>
+                                    <p>房屋信息：楼盘</p>
+                                    <p>介绍：@Model.HomeInfo_IntroDuce</p>
+                                </div>
+                                <div style="margin-left:50px;margin-top:20px;float:left"></div>
+                            </div>
+                        </div>
+                    }
                 </div>
                 <div class="col-md-3 blog-grid1">
                     <div class="feature">
@@ -69,8 +92,10 @@
                         @foreach (var item in homes)
                         {
                             <div class="feature-top top2">
-                                <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
-                                <h5>@item.HomeInfo_PosiTion</h5>
+                                <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">
+                                    <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
+                                </a>
+                                <h5>@item.HomeInfo_Xq_Name</h5>
                                 <p>@item.HomeInfo_IntroDuce &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
                             </div>
                         }
