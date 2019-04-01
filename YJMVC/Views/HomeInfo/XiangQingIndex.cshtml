@@ -5,7 +5,9 @@
     Layout = "~/Views/Shared/_QianTaiView.cshtml";
     List<HomeInfoModel> homes = ViewBag.homes;
 }
-
+<script src="~/layui/layui.all.js"></script>
+<link href="~/layui/css/layui.css" rel="stylesheet" />
+<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=wq7e1ztp1VSc8o53ExMr3p4EbNDCL08z"></script>
 <div class="banner-section">
     <div class="container">
         <h2>房屋详细信息</h2>
@@ -80,3 +82,4 @@
     </div>
 </div>
 
+<button class="btn" data-x="121.701901" data-y="30.878289">模态框展示</button>
