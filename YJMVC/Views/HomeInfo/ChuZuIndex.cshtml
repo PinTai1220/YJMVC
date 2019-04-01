@@ -13,11 +13,11 @@
     <div class="properties-section">
         <div class="container">
             <div class="properties-grids">
-                <div class="col-md-9 forsales-left">
+                <div class="col-md-9 forsales-left" style="float:left">
                     <div class="forsale">
                         <div class="bs-example bs-example-tabs" role="tabpanel" data-example-id="togglable-tabs">
                             <ul id="myTab" class="nav nav-tabs left-tab" role="tablist">
-                                <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="/QianTai/images/menu1.png"></a></li>
+                                <li role="presentation" class="active"><a href="#home" id="home-tab" role="tab" data-toggle="tab" aria-controls="home" aria-expanded="true"><img src="/QianTai/Images/menu1.png"></a></li>
                                 <li role="presentation"><a href="#profile" role="tab" id="profile-tab" data-toggle="tab" aria-controls="profile"><img src="/QianTai/images/menu.png"></a></li>
                             </ul>
                             <div id="myTabContent" class="tab-content">
@@ -30,10 +30,12 @@
                                                 <h4><a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">@item.HomeInfo_Xq_Name</a></h4>
                                                 <div class="forsale1">
                                                     <div class="forsale-left">
-                                                        <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="~/Images/@item.HomeInfo_PhotoPath" style="width:239px;height:180px;" class="img-responsive" alt="/"></a>
+                                                        <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">
+                                                            <img src="~/Images/@item.HomeInfo_PhotoPath" style="width:239px;height:180px" class="img-responsive" alt="/">
+                                                        </a>
                                                     </div>
                                                     <div class="forsale-right">
-                                                        <h5><label>￥</label> @item.HomeInfo_AvgPrice /每月- <span>@item.HomeInfo_Type</span></h5>
+                                                        <h5><label>￥</label> @item.HomeInfo_AvgPrice - <span>@item.HomeInfo_Type</span></h5>
                                                         <p>@item.HomeInfo_IntroDuce</p>
                                                         <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id" class="button4">知道更多</a>
                                                     </div>
@@ -49,19 +51,19 @@
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="profile" aria-labelledby="profile-tab">
                                     <div class="forsale-grids1">
-                                        @foreach (var item in Model)
+                                        @foreach (var item1 in Model)
                                         {
-                                            if (item.HomeInfo_InfoType == 2)
+                                            if (item1.HomeInfo_InfoType == 2)
                                             {
                                                 <div class="col-md-4 forsale-grid1">
-                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="~/Images/@item.HomeInfo_PhotoPath" style="width:280px;height:190px;" class="img-responsive" alt="" /></a>
+                                                    <a href="/HomeInfo/XiangQingIndex?Id=@item1.HomeInfo_Id"><img src="~/Images/@item1.HomeInfo_PhotoPath" style="width:280px;height:190px" class="img-responsive" alt="/"></a>
                                                     <div class="sale-info">
                                                         <span>
-                                                            @if (item.HomeInfo_InfoType == 1)
+                                                            @if (item1.HomeInfo_InfoType == 1)
                                                             {
                                                                 @:出售
                                                             }
-                                                            else if (item.HomeInfo_InfoType == 2)
+                                                            else if (item1.HomeInfo_InfoType == 2)
                                                             {
                                                                 @:出租
                                                             }
@@ -71,9 +73,9 @@
                                                             }
                                                         </span>
                                                     </div>
-                                                    <h5>@item.HomeInfo_PosiTion,@item.HomeInfo_Xq_Name</h5>
-                                                    <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">了解更多</a></p>
-                                                    <h6>￥@item.HomeInfo_AvgPrice/月</h6>
+                                                    <h5>@item1.HomeInfo_PosiTion,@item1.HomeInfo_Xq_Name</h5>
+                                                    <p>@item1.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item1.HomeInfo_Id">了解更多</a></p>
+                                                    <h6>￥@item1.HomeInfo_AvgPrice</h6>
                                                 </div>
                                             }
                                         }
@@ -83,8 +85,9 @@
                         </div>
                     </div>
                 </div>
+
                 <form action=" /HomeInfo/GetChuZhuHomeInfos">
-                    <div class="col-md-3 properties-right">
+                    <div class="col-md-3 properties-right" style="float:left">
                         <div class="properties-top">
                             <h4>找到你所需要的房屋</h4>
                             <div class="yourplace">
@@ -162,7 +165,6 @@
                                 <input type="submit" value="查询">
                             </div>
                         </div>
-                    </div>
                 </form>
                 <div class="feature">
                     <h4>楼盘广告</h4>
@@ -170,19 +172,18 @@
                     {
                         if (item.HomeInfo_InfoType == 3)
                         {
-                    <div class="feature-top top2">
-                        <input id="Hidden1" value="@item.HomeInfo_Id" type="hidden" />
-                        <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/"></a>
-                        <h5>@item.HomeInfo_Xq_Name</h5>
-                        <p>@item.HomeInfo_IntroDuce &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
-                    </div>
+                            <div class="feature-top top2">
+                                <a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id"><img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/"></a>
+                                <h5>@item.HomeInfo_Xq_Name</h5>
+                                <p>@item.HomeInfo_IntroDuce &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
+                            </div>
                         }
 
                     }
                 </div>
             </div>
-                <div class="clearfix"></div>
-            </div>
+            <div class="clearfix"></div>
         </div>
     </div>
+</div>
 
