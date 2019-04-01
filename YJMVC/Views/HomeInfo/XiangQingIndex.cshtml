@@ -63,13 +63,13 @@
                 </div>
                 <div class="col-md-3 blog-grid1">
                     <div class="feature">
-                        <h4>特色房屋</h4>
+                        <h4>楼盘广告</h4>
                         @foreach (var item in homes)
                         {
                             <div class="feature-top top2">
                                 <img src="/Images/@item.HomeInfo_PhotoPath" class="img-responsive" alt="/">
                                 <h5>@item.HomeInfo_PosiTion</h5>
-                                <p>@item.HomeInfo_IntroDuce<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
+                                <p>@item.HomeInfo_IntroDuce &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<a href="/HomeInfo/XiangQingIndex?Id=@item.HomeInfo_Id">知道更多</a></p>
                             </div>
                         }
                     </div>
